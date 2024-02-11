@@ -20,14 +20,14 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:src="@drawable/thinkwell_ai_logo"
-        android:contentDescription="logo"/>
+        android:contentDescription="@string/logo"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_marginStart="5dp"
         android:fontFamily="@font/kufam"
-        android:text="ThinkWell.AI"
+        android:text="@string/thinkwell_ai"
         android:textColor="@color/logo_purple"
         android:textSize="15sp"
         android:textStyle="bold" />
@@ -74,7 +74,7 @@
         android:src="@drawable/send_button"
         android:padding="10dp"
         android:layout_gravity="center_vertical"
-        android:contentDescription="sendBtn"
+        android:contentDescription="@string/sendbtn"
         android:layout_marginStart="8dp"/>
 
   </LinearLayout>
