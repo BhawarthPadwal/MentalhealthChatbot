@@ -3,4 +3,8 @@
     <string name="logo">logo</string>
     <string name="thinkwell_ai">ThinkWell.AI</string>
     <string name="sendbtn">sendBtn</string>
+    <string name="don_t_have_account_sign_up"><html>Don\'t have account? <b>Sign Up</b></html></string>
+    <string name="backbtn">backbtn</string>
+    <string name="already_have_an_account_sign_in"><html>Already have an account? <b>Log in</b></html></string>
+    <string name="email_instruction">Enter the email address associated with your account.</string>
 </resources>
