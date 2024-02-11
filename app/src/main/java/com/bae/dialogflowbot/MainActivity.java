@@ -1,7 +1,10 @@
 package com.bae.dialogflowbot;
 
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -10,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -155,7 +159,9 @@ public class MainActivity extends AppCompatActivity implements BotReply {
           return true;
         } else if (item.getItemId() == R.id.logout) {
           Toast.makeText(MainActivity.this, "Logout clicked", Toast.LENGTH_SHORT).show();
-          startActivity(new Intent(MainActivity.this, LogoutPage.class));
+          Intent intent = new Intent(MainActivity.this, LogoutPage.class);
+          intent.putExtra("FROM_ACTIVITY","MainActivity");
+          startActivity(intent);
           overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
           return true;
         }
@@ -164,4 +170,27 @@ public class MainActivity extends AppCompatActivity implements BotReply {
     });
     popupMenu.show();
   }
+
+  boolean doubleBackToExitPressedOnce = false;
+
+  @Override
+  public void onBackPressed() {
+    if (doubleBackToExitPressedOnce) {
+      super.onBackPressed();
+      finishAffinity();
+      return;
+    }
+
+    this.doubleBackToExitPressedOnce = true;
+    Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+    new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+
+      @Override
+      public void run() {
+        doubleBackToExitPressedOnce=false;
+      }
+    }, 2000);
+  }
+
 }

@@ -222,6 +222,7 @@
                 </LinearLayout>
 
                 <ImageView
+                    android:id="@+id/change_password_profile"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:src="@drawable/baseline_arrow_forward_ios_24"

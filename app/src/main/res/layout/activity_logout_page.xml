@@ -39,8 +39,7 @@
         android:padding="10dp"
         android:layout_below="@id/app_name_ll_logout"
         android:src="@drawable/baseline_keyboard_backspace_24"
-        android:contentDescription="@string/backbtn"
-        android:visibility="gone"/>
+        android:contentDescription="@string/backbtn" />
 
     <TextView
         android:id="@+id/logout_txt"
