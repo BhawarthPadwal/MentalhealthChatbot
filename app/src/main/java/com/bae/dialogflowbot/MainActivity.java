@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements BotReply {
   ChatAdapter chatAdapter;
   List<Message> messageList = new ArrayList<>();
   EditText editMessage;
-  ImageButton btnSend;
+  ImageView btnSend;
 
   //dialogFlow
   private SessionsClient sessionsClient;
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements BotReply {
 
   private void setUpBot() {
     try {
-      InputStream stream = this.getResources().openRawResource(R.raw.credential);
+      InputStream stream = this.getResources().openRawResource(R.raw.credentials);
       GoogleCredentials credentials = GoogleCredentials.fromStream(stream)
           .createScoped(Lists.newArrayList("https://www.googleapis.com/auth/cloud-platform"));
       String projectId = ((ServiceAccountCredentials) credentials).getProjectId();

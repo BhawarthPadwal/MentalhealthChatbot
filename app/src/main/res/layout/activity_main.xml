@@ -1,60 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_centerInParent="true"
     tools:context=".MainActivity">
 
-
-  <androidx.constraintlayout.widget.ConstraintLayout
-      android:id="@+id/constraintLayout"
-      android:layout_width="0dp"
+  <LinearLayout
+      android:id="@+id/app_name_ll_chatbot"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_margin="10dp"
-      android:background="@drawable/border_outline"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/chatView"
-      app:layout_constraintStart_toStartOf="parent">
+      android:orientation="horizontal"
+      android:background="@color/white"
+      android:padding="10dp"
+      android:elevation="2dp">
 
-    <EditText
-        android:id="@+id/editMessage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:padding="10dp"
-        android:hint="Enter your message"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnSend"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/thinkwell_ai_logo"
+        android:contentDescription="logo"/>
 
-    <ImageButton
-        android:id="@+id/btnSend"
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:tint="#43A047"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_media_play" />
-  </androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="35dp"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/kufam"
+        android:text="ThinkWell.AI"
+        android:textColor="@color/logo_purple"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+  </LinearLayout>
 
   <androidx.recyclerview.widget.RecyclerView
       android:layout_width="match_parent"
-      android:layout_height="0dp"
+      android:layout_height="match_parent"
       android:id="@+id/chatView"
+      android:layout_below="@id/app_name_ll_chatbot"
+      android:layout_above="@id/inputLayout"
       app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-      android:orientation="vertical"
       tools:listitem="@layout/adapter_message_one"
       app:stackFromEnd="true"
       tools:itemCount="2"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintBottom_toTopOf="@id/constraintLayout"
-      app:layout_constraintTop_toTopOf="parent"
-      tools:layout_editor_absoluteY="1dp" />
+      android:orientation="vertical"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+  <LinearLayout
+      android:id="@+id/inputLayout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_marginTop="8dp"
+      android:background="@drawable/chat_ll_bg"
+      android:padding="16dp"
+      android:orientation="horizontal"
+      android:elevation="5dp">
+
+    <EditText
+        android:id="@+id/editMessage"
+        android:layout_width="320dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:hint="Ask what you want to ask!"
+        android:inputType="textMultiLine"
+        android:padding="8dp" />
+
+    <ImageView
+        android:id="@+id/btnSend"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/send_button"
+        android:padding="10dp"
+        android:layout_gravity="center_vertical"
+        android:contentDescription="sendBtn"
+        android:layout_marginStart="8dp"/>
+
+  </LinearLayout>
+
+</RelativeLayout>
