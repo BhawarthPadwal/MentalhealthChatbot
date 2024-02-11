@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.bae.dialogflowbot" />
+                  <option name="mobileSdkAppId" value="1:145486496385:android:60a9d08fc3e0f1027f0380" />
+                  <option name="projectId" value="dialogflowbot-2c94f" />
+                  <option name="projectNumber" value="145486496385" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

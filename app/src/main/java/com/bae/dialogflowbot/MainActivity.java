@@ -1,13 +1,22 @@
 package com.bae.dialogflowbot;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bae.dialogflowbot.activities.LogoutPage;
+import com.bae.dialogflowbot.activities.NotePage;
+import com.bae.dialogflowbot.activities.ProfilePage;
+import com.bae.dialogflowbot.activities.TaskPage;
 import com.bae.dialogflowbot.adapters.ChatAdapter;
 import com.bae.dialogflowbot.helpers.SendMessageInBg;
 import com.bae.dialogflowbot.interfaces.BotReply;
@@ -34,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements BotReply {
   ChatAdapter chatAdapter;
   List<Message> messageList = new ArrayList<>();
   EditText editMessage;
-  ImageView btnSend;
+  ImageView btnSend, menu_bar;
 
   //dialogFlow
   private SessionsClient sessionsClient;
@@ -49,6 +58,14 @@ public class MainActivity extends AppCompatActivity implements BotReply {
     chatView = findViewById(R.id.chatView);
     editMessage = findViewById(R.id.editMessage);
     btnSend = findViewById(R.id.btnSend);
+    menu_bar = findViewById(R.id.option_menu);
+
+    menu_bar.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+          showPopupMenu(view);
+      }
+    });
 
     chatAdapter = new ChatAdapter(messageList, this);
     chatView.setAdapter(chatAdapter);
@@ -111,5 +128,40 @@ public class MainActivity extends AppCompatActivity implements BotReply {
      } else {
        Toast.makeText(this, "failed to connect!", Toast.LENGTH_SHORT).show();
      }
+  }
+
+  private void showPopupMenu(View view) {
+    PopupMenu popupMenu = new PopupMenu(this, view);
+    MenuInflater inflater = popupMenu.getMenuInflater();
+    inflater.inflate(R.menu.navigation_menu, popupMenu.getMenu());
+    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+      @Override
+      public boolean onMenuItemClick(MenuItem item) {
+
+        if (item.getItemId() == R.id.profile) {
+          Toast.makeText(MainActivity.this, "Profile clicked", Toast.LENGTH_SHORT).show();
+          startActivity(new Intent(MainActivity.this, ProfilePage.class));
+          overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+          return true;
+        } else if (item.getItemId() == R.id.notes) {
+          Toast.makeText(MainActivity.this, "Notes clicked", Toast.LENGTH_SHORT).show();
+          startActivity(new Intent(MainActivity.this, NotePage.class));
+          overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+          return true;
+        } else if (item.getItemId() == R.id.tasks) {
+          Toast.makeText(MainActivity.this, "Task clicked", Toast.LENGTH_SHORT).show();
+          startActivity(new Intent(MainActivity.this, TaskPage.class));
+          overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+          return true;
+        } else if (item.getItemId() == R.id.logout) {
+          Toast.makeText(MainActivity.this, "Logout clicked", Toast.LENGTH_SHORT).show();
+          startActivity(new Intent(MainActivity.this, LogoutPage.class));
+          overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+          return true;
+        }
+        return false;
+      }
+    });
+    popupMenu.show();
   }
 }

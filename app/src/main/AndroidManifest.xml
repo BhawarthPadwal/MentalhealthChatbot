@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.DialogflowBot">
+        <activity
+            android:name=".activities.TaskPage"
+            android:exported="false" />
+        <activity
+            android:name=".activities.NotePage"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LogoutPage"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ProfilePage"
+            android:exported="false" />
         <activity
             android:name=".activities.ForgotPassword"
             android:exported="false" />

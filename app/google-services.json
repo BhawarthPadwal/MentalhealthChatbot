@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "145486496385",
+    "project_id": "dialogflowbot-2c94f",
+    "storage_bucket": "dialogflowbot-2c94f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:145486496385:android:60a9d08fc3e0f1027f0380",
+        "android_client_info": {
+          "package_name": "com.bae.dialogflowbot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAViKd04QrgON_1VJljjR1_nQ9eqZ8veJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
