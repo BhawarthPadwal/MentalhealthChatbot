@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.DialogflowBot">
         <activity
+            android:name=".activities.AddEditNote"
+            android:exported="false" />
+        <activity
             android:name=".activities.TaskPage"
             android:exported="false" />
         <activity
