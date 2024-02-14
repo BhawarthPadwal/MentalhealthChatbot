@@ -1,19 +1,17 @@
 package com.bae.dialogflowbot.models;
 
+import java.util.Map;
+
 public class Note {
-
     String title, content;
-    String timestamp;
-
-    public Note(String title, String content, String timestamp) {
+    Map<String, Object> timestamp;
+    public Note(String title, String content, Map<String, Object> timestamp) {
         this.title = title;
         this.content = content;
         this.timestamp = timestamp;
     }
-
     public Note() {
     }
-
     public String getTitle() {
         return title;
     }
@@ -30,11 +28,11 @@ public class Note {
         this.content = content;
     }
 
-    public String getTimestamp() {
+    public Map<String, Object> getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(Map<String, Object> timestamp) {
         this.timestamp = timestamp;
     }
 }

@@ -12,6 +12,7 @@ import android.view.View;
 import com.bae.dialogflowbot.R;
 import com.bae.dialogflowbot.adapters.NoteAdapter;
 import com.bae.dialogflowbot.models.Note;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -45,28 +46,35 @@ public class NotePage extends AppCompatActivity {
     }
 
     private void set_notes() {
+
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Notes").child(currentUser.getUid()).child("myNotes");
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        noteAdapter = new NoteAdapter(this, noteArrayList);
+
+        FirebaseRecyclerOptions<Note> options =
+                new FirebaseRecyclerOptions.Builder<Note>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Notes").child(currentUser.getUid()).child("myNotes"),Note.class)
+                        .build();
+
+        noteAdapter = new NoteAdapter(options, this);
         recyclerView.setAdapter(noteAdapter);
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                noteArrayList.clear();
-                for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
-                    Note note = dataSnapshot.getValue(Note.class);
-                    noteArrayList.add(note);
-                }
-                noteAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+//
+//        databaseReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                noteArrayList.clear();
+//                for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
+//                    Note note = dataSnapshot.getValue(Note.class);
+//                    noteArrayList.add(note);
+//                }
+//                noteAdapter.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 
     }
 
@@ -78,5 +86,23 @@ public class NotePage extends AppCompatActivity {
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        noteAdapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        noteAdapter.stopListening();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        noteAdapter.notifyDataSetChanged();
     }
 }
