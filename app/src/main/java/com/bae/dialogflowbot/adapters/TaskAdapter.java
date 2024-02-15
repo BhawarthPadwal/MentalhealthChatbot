@@ -1,18 +1,31 @@
 package com.bae.dialogflowbot.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bae.dialogflowbot.R;
+import com.bae.dialogflowbot.bottomfragment.AddNewTask;
 import com.bae.dialogflowbot.models.Task;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 import java.util.Map;
@@ -23,7 +36,8 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.MyTas
         super(options);
         this.context = context;
     }
-
+    FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+    DatabaseReference databaseReference;
     @Override
     protected void onBindViewHolder(@NonNull MyTaskViewHolder holder, int position, @NonNull Task model) {
         holder.taskTitle_tv.setText(model.getTitle());
@@ -62,6 +76,34 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.MyTas
             holder.taskDay_tv.setText("");
             holder.taskMonth.setText("");
         }
+        String docId = this.getRef(position).getKey();
+        holder.menu_btn.setOnClickListener((v)->{
+            Toast.makeText(context, "Menu clicked", Toast.LENGTH_SHORT).show();
+            PopupMenu popupMenu = new PopupMenu(context, holder.menu_btn);
+            MenuInflater inflater = popupMenu.getMenuInflater();
+            inflater.inflate(R.menu.task_menu, popupMenu.getMenu());
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem menuItem) {
+                    if (menuItem.getItemId() == R.id.task_done) {
+                        Toast.makeText(context, "Task Completed", Toast.LENGTH_SHORT).show();
+                        onTaskCompletion(docId, model);
+                        //Log.d("DocId",docId);
+                        return true;
+                    } else if (menuItem.getItemId() == R.id.task_edit) {
+                        Toast.makeText(context, "Edit Task", Toast.LENGTH_SHORT).show();
+                        return true;
+                    } else if (menuItem.getItemId() == R.id.task_delete) {
+                        Toast.makeText(context, "Task Deleted", Toast.LENGTH_SHORT).show();
+                        onTaskDeletion(docId);
+                        return true;
+                    }
+                    return false;
+                }
+            });
+            popupMenu.show();
+
+        });
 
 
 
@@ -76,6 +118,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.MyTas
 
     public class MyTaskViewHolder extends RecyclerView.ViewHolder {
         TextView taskTitle_tv, taskDesc_tv, taskTime_tv, taskStatus_tv, taskDayOfWeek, taskDay_tv, taskMonth;
+        ImageView menu_btn;
         public MyTaskViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -86,6 +129,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.MyTas
             taskDayOfWeek = itemView.findViewById(R.id.task_dayOfWeek);
             taskDay_tv = itemView.findViewById(R.id.task_dayOfMonth);
             taskMonth = itemView.findViewById(R.id.task_month);
+            menu_btn = itemView.findViewById(R.id.task_options);
         }
     }
     private String getMonthAbbreviation(int month) {
@@ -122,5 +166,42 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.MyTas
         }
 
     }
+    private void onTaskCompletion(String docId, Task task) {
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Tasks").child(currentUser.getUid()).child("myCompletedTasks");
+        databaseReference.push().setValue(task).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
+                Toast.makeText(context, "Task appended successfully", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("CompletedTask","Error: "+e.getMessage());
+            }
+        });
+
+        onTaskDeletion(docId);
+
+    }
+    private void onTaskDeletion(String docId) {
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Tasks").child(currentUser.getUid()).child("myTasks").child(docId);
+        databaseReference.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
+                Toast.makeText(context, "Task Deleted", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+    }
+
 
 }
