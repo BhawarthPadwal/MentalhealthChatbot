@@ -75,23 +75,23 @@
         app:fabSize="normal"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="228dp"
-        android:layout_marginEnd="130dp"/>
+        android:layout_marginTop="210dp"
+        android:layout_marginEnd="140dp"/>
 
     <TextView
         android:id="@+id/edit_profile_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="bhawarthpadwal7@gmail.com"
         android:layout_below="@id/fab"
         android:layout_centerInParent="true"
-        android:textSize="16sp"
-        android:fontFamily="@font/kufam"
+        android:layout_marginTop="10dp"
         android:background="@drawable/id_background"
+        android:fontFamily="@font/kufam"
         android:padding="5dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
-        android:layout_marginTop="10dp"/>
+        android:text="bhawarthpadwal7@gmail.com"
+        android:textSize="16sp" />
 
     <LinearLayout
         android:id="@+id/data_ll"
@@ -186,48 +186,21 @@
             android:text="Gender"
             android:textSize="16sp" />
 
-        <LinearLayout
+        <EditText
+            android:id="@+id/profile_gender_edit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/ll"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@drawable/id_background"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp">
-
-                <RadioButton
-                    android:id="@+id/maleRadioBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:buttonTint="#1A99C4"
-                    android:layout_marginLeft="16dp"
-                    android:text="Male"
-                    android:layout_weight="1" />
-
-                <RadioButton
-                    android:id="@+id/femaleRadioBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:buttonTint="#1A99C4"
-                    android:layout_weight="1"
-                    android:text="Female" />
-
-                <RadioButton
-                    android:id="@+id/otherRadioBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:buttonTint="#1A99C4"
-                    android:layout_weight="1"
-                    android:text="Other" />
-            </RadioGroup>
-
-        </LinearLayout>
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/id_background"
+            android:ems="10"
+            android:inputType="text"
+            android:paddingStart="15dp"
+            android:paddingEnd="10dp"
+            android:hint="Enter Your Gender ..."
+            android:text=""
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/edit_profile_btn"
