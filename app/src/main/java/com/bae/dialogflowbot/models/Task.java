@@ -1,14 +1,17 @@
 package com.bae.dialogflowbot.models;
 
+import java.util.Map;
+
 public class Task {
 
-    String title, description, date;
+    String title, description;
+    Map<String, Integer> date;
     int status;
 
     public Task() {
     }
 
-    public Task(String title, String description, String date, int status) {
+    public Task(String title, String description, Map<String, Integer> date, int status) {
         this.title = title;
         this.description = description;
         this.date = date;
@@ -31,11 +34,20 @@ public class Task {
         this.description = description;
     }
 
-    public String getDate() {
+//    public String getDate() {
+//        return date;
+//    }
+//
+//    public void setDate(String date) {
+//        this.date = date;
+//    }
+
+
+    public Map<String, Integer> getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Map<String, Integer> date) {
         this.date = date;
     }
 
