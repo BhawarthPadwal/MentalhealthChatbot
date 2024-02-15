@@ -90,9 +90,6 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.MyTas
                         onTaskCompletion(docId, model);
                         //Log.d("DocId",docId);
                         return true;
-                    } else if (menuItem.getItemId() == R.id.task_edit) {
-                        Toast.makeText(context, "Edit Task", Toast.LENGTH_SHORT).show();
-                        return true;
                     } else if (menuItem.getItemId() == R.id.task_delete) {
                         Toast.makeText(context, "Task Deleted", Toast.LENGTH_SHORT).show();
                         onTaskDeletion(docId);

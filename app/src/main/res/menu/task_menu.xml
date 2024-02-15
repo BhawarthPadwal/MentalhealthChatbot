@@ -6,10 +6,6 @@
         android:title="Completed"/>
 
     <item
-        android:id="@+id/task_edit"
-        android:title="Edit"/>
-
-    <item
         android:id="@+id/task_delete"
         android:title="Delete"/>
 

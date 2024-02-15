@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -267,6 +268,9 @@ public class UserLoginPage extends AppCompatActivity {
         if (user != null) {
             // User is authenticated, extract information and customize UI
             String userName = user.getDisplayName();
+            if (userName.isEmpty() || userName == null) {
+                userName = "New User";
+            }
             String userEmail = user.getEmail();
             Toast.makeText(this, userName+" "+userEmail, Toast.LENGTH_SHORT).show();
 
@@ -275,6 +279,12 @@ public class UserLoginPage extends AppCompatActivity {
             intent.putExtra("USER_NAME", userName);
             intent.putExtra("USER_EMAIL", userEmail);
             startActivity(intent);
+
+            SharedPreferences sharedPreferences = getSharedPreferences("UserData",MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("USER_NAME",userName);
+            editor.putString("USER_EMAIL",userEmail);
+            editor.apply();
 
             // Apply transition animation and finish the current activity
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
