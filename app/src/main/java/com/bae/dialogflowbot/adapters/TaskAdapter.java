@@ -200,5 +200,9 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.MyTas
 
     }
 
+//    public int getItemCount() {
+//        return super.getItemCount();
+//    }
+
 
 }

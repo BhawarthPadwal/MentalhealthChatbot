@@ -268,11 +268,31 @@ public class UserLoginPage extends AppCompatActivity {
         if (user != null) {
             // User is authenticated, extract information and customize UI
             String userName = user.getDisplayName();
-            if (userName.isEmpty() || userName == null) {
-                userName = "New User";
-            }
             String userEmail = user.getEmail();
-            Toast.makeText(this, userName+" "+userEmail, Toast.LENGTH_SHORT).show();
+            SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
+            String status = sharedPreferences.getString("Status", "");
+
+            // If the user's profile has been updated, retrieve the updated username
+            if (status.equals("Updated")) {
+                userName = sharedPreferences.getString("USER_NAME", "");
+            } else {
+                // If it's a new user or the profile hasn't been updated, use the username from Firebase
+                if (userName == null || userName.isEmpty()) {
+                    userName = "New User";
+                } else {
+                    // Save the user's data to SharedPreferences if it's a new user or the profile hasn't been updated
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("USER_NAME", userName);
+                    editor.putString("USER_EMAIL", userEmail);
+                    editor.apply();
+                }
+                // Not Sure
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("USER_NAME", userName);
+                editor.putString("USER_EMAIL", userEmail);
+                editor.apply();
+
+            }
 
             // Pass user information to the MainDashboard activity if needed
             Intent intent = new Intent(UserLoginPage.this, MainActivity.class);
@@ -280,17 +300,15 @@ public class UserLoginPage extends AppCompatActivity {
             intent.putExtra("USER_EMAIL", userEmail);
             startActivity(intent);
 
-            SharedPreferences sharedPreferences = getSharedPreferences("UserData",MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("USER_NAME",userName);
-            editor.putString("USER_EMAIL",userEmail);
-            editor.apply();
+            Toast.makeText(this, userName + " " + userEmail, Toast.LENGTH_SHORT).show();
+
 
             // Apply transition animation and finish the current activity
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             finish();
+        } else {
+            // Handle the case when user is null (not authenticated)
         }
-        // Handle the case when user is null (not authenticated)
     }
 
     boolean doubleBackToExitPressedOnce = false;

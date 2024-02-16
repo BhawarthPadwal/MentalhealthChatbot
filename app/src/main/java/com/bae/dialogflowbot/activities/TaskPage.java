@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -20,9 +21,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class TaskPage extends AppCompatActivity {
-    FloatingActionButton addTaskFab;
+    FloatingActionButton addTaskFab, completedTaskFab;
     RecyclerView recyclerView;
     TaskAdapter taskAdapter;
+    int itemCount;
     FirebaseUser currentUser;
     DatabaseReference databaseReference;
     @Override
@@ -33,9 +35,26 @@ public class TaskPage extends AppCompatActivity {
         call_all_ids();
         set_add_task();
         set_task();
+
+//        itemCount = taskAdapter.getItemCount();
+//        if (itemCount == 0) {
+//            recyclerView.setBackgroundResource(R.layout.);
+//        } else {
+//            recyclerView.ba;
+//        }
+
+        completedTaskFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TaskPage.this, CompletedTaskPage.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            }
+        });
+
     }
     private void call_all_ids() {
         addTaskFab = findViewById(R.id.add_task_fab);
+        completedTaskFab = findViewById(R.id.completed_task_fab);
         recyclerView = findViewById(R.id.task_recyclerview);
     }
 

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.DialogflowBot">
         <activity
+            android:name=".activities.CompletedTaskPage"
+            android:exported="false" />
+        <activity
             android:name=".activities.EditProfilePage"
             android:exported="false" />
         <activity

@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -34,6 +35,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.UserInfo;
 
 public class UserRegisterPage extends AppCompatActivity {
     TextView traverse_pg;
@@ -220,8 +222,23 @@ public class UserRegisterPage extends AppCompatActivity {
             String userName = user.getDisplayName();
             String userEmail = user.getEmail();
 
-            // Pass user information to the MainDashboard activity if needed
-            Intent intent = new Intent(UserRegisterPage.this, MainActivity.class);
+            // Check if the user signed up using email and password
+            boolean isEmailAndPassword = false;
+            for (UserInfo profile : user.getProviderData()) {
+                if (profile.getProviderId().equals("password")) {
+                    isEmailAndPassword = true;
+                    break;
+                }
+            }
+
+            Intent intent;
+            if (isEmailAndPassword) {
+                // User signed up using email and password, redirect to login page
+                intent = new Intent(UserRegisterPage.this, UserLoginPage.class);
+            } else {
+                // User signed up using Google sign-in, redirect to MainActivity
+                intent = new Intent(UserRegisterPage.this, MainActivity.class);
+            }
             intent.putExtra("USER_NAME", userName);
             intent.putExtra("USER_EMAIL", userEmail);
             startActivity(intent);
@@ -229,8 +246,9 @@ public class UserRegisterPage extends AppCompatActivity {
             // Apply transition animation and finish the current activity
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             finish();
+        } else {
+            // Handle the case when user is null (not authenticated)
         }
-        // Handle the case when user is null (not authenticated)
     }
 
     private boolean email_validator() {

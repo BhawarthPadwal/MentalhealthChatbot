@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
-    tools:context=".activities.TaskPage">
+    tools:context=".activities.CompletedTaskPage">
 
     <LinearLayout
-        android:id="@+id/app_name_ll_schedule"
+        android:id="@+id/app_name_ll_CTask"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -33,45 +33,23 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/task_txt"
+        android:id="@+id/CTask_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/app_name_ll_schedule"
+        android:layout_below="@id/app_name_ll_CTask"
         android:layout_centerInParent="true"
         android:fontFamily="@font/kufam"
-        android:text="TranquilTasks"
+        android:text="Accomplishments"
         android:textColor="@color/logo_purple"
         android:textSize="30sp"
         android:textStyle="bold" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/add_task_fab"
-        android:backgroundTint="@color/logo_purple"
-        android:src="@drawable/baseline_add_24"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="30dp"
-        android:contentDescription="@string/addnotefab" />
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/task_recyclerview"
+        android:id="@+id/CTask_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/task_txt"
+        android:layout_below="@id/CTask_txt"
         android:layout_centerInParent="true" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/completed_task_fab"
-        android:backgroundTint="@color/light_purple"
-        android:src="@drawable/baseline_check_24"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="30dp"
-        android:contentDescription="@string/addnotefab" />
 
 
 </RelativeLayout>
