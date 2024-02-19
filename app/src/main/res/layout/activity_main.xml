@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
+    android:background="@drawable/beach2"
     tools:context=".MainActivity">
 
   <LinearLayout
@@ -36,8 +37,9 @@
         android:id="@+id/option_menu"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:src="@drawable/menu"
-        android:layout_marginStart="200dp" />
+        android:src="@drawable/hamburger_bar"
+        android:layout_marginStart="200dp"
+        android:padding="2dp"/>
 
   </LinearLayout>
 

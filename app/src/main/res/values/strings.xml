@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DialogflowBot</string>
+    <string name="app_name">ThinkWell AI</string>
     <string name="logo">logo</string>
     <string name="thinkwell_ai">ThinkWell.AI</string>
     <string name="sendbtn">sendBtn</string>
