@@ -295,7 +295,7 @@ public class UserLoginPage extends AppCompatActivity {
             }
 
             // Pass user information to the MainDashboard activity if needed
-            Intent intent = new Intent(UserLoginPage.this, MainActivity.class);
+            Intent intent = new Intent(UserLoginPage.this, HomePage.class);
             intent.putExtra("USER_NAME", userName);
             intent.putExtra("USER_EMAIL", userEmail);
             startActivity(intent);

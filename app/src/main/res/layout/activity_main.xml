@@ -33,14 +33,6 @@
         android:textSize="17sp"
         android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/option_menu"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:src="@drawable/hamburger_bar"
-        android:layout_marginStart="200dp"
-        android:padding="2dp"/>
-
   </LinearLayout>
 
   <androidx.recyclerview.widget.RecyclerView

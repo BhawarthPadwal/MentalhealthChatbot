@@ -21,7 +21,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ForgotPassword extends AppCompatActivity {
     private Button fp_btn;
-    private ImageView back_btn;
     private TextInputLayout email_et;
     private FirebaseAuth mAuth;
     private static final String TAG = "Forgot Password";

@@ -14,6 +14,7 @@ import com.bae.dialogflowbot.bottomfragment.AddNewTask;
 import com.bae.dialogflowbot.models.Note;
 import com.bae.dialogflowbot.models.Task;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,7 +25,7 @@ public class TaskPage extends AppCompatActivity {
     FloatingActionButton addTaskFab, completedTaskFab;
     RecyclerView recyclerView;
     TaskAdapter taskAdapter;
-    int itemCount;
+    BottomNavigationView bottomNavigationView;
     FirebaseUser currentUser;
     DatabaseReference databaseReference;
     @Override
@@ -35,7 +36,7 @@ public class TaskPage extends AppCompatActivity {
         call_all_ids();
         set_add_task();
         set_task();
-
+        set_bottom_navigation();
 //        itemCount = taskAdapter.getItemCount();
 //        if (itemCount == 0) {
 //            recyclerView.setBackgroundResource(R.layout.);
@@ -56,6 +57,7 @@ public class TaskPage extends AppCompatActivity {
         addTaskFab = findViewById(R.id.add_task_fab);
         completedTaskFab = findViewById(R.id.completed_task_fab);
         recyclerView = findViewById(R.id.task_recyclerview);
+        bottomNavigationView = findViewById(R.id.bottomNavigation_task);
     }
 
     private void set_task() {
@@ -69,6 +71,28 @@ public class TaskPage extends AppCompatActivity {
 
         taskAdapter = new TaskAdapter(options, this);
         recyclerView.setAdapter(taskAdapter);
+    }
+
+    private void set_bottom_navigation() {
+
+        bottomNavigationView.setSelectedItemId(R.id.bottom_calender);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.bottom_notes) {
+                startActivity(new Intent(TaskPage.this, NotePage.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                finish();
+            } else if (item.getItemId() == R.id.bottom_home) {
+                startActivity(new Intent(TaskPage.this, HomePage.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                finish();
+            } else if (item.getItemId() == R.id.bottom_profile) {
+                startActivity(new Intent(TaskPage.this, ProfilePage.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                finish();
+            }
+            return true;
+        });
     }
 
 

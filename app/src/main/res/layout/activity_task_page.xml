@@ -51,7 +51,7 @@
         android:backgroundTint="@color/logo_purple"
         android:src="@drawable/baseline_add_24"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@id/bottomNavigation_task"
         android:layout_margin="30dp"
         android:contentDescription="@string/addnotefab" />
 
@@ -60,7 +60,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/task_txt"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:layout_above="@id/bottomNavigation_task"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
@@ -69,9 +70,26 @@
         android:backgroundTint="@color/light_purple"
         android:src="@drawable/baseline_check_24"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@id/bottomNavigation_task"
         android:layout_margin="30dp"
         android:contentDescription="@string/addnotefab" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/bottomNavigation_task"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom_navigation"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="2dp"
+        app:menu="@menu/menu"
+        app:itemIconSize="20dp"
+        app:itemIconTint="@drawable/screen_selector"
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="unlabeled"
+        app:itemActiveIndicatorStyle="@drawable/screen_selector" />
 
 
 </RelativeLayout>

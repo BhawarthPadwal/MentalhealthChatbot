@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements BotReply {
   ChatAdapter chatAdapter;
   List<Message> messageList = new ArrayList<>();
   EditText editMessage;
-  ImageView btnSend, menu_bar;
+  ImageView btnSend;
 
   //dialogFlow
   private SessionsClient sessionsClient;
@@ -62,14 +62,6 @@ public class MainActivity extends AppCompatActivity implements BotReply {
     chatView = findViewById(R.id.chatView);
     editMessage = findViewById(R.id.editMessage);
     btnSend = findViewById(R.id.btnSend);
-    menu_bar = findViewById(R.id.option_menu);
-
-    menu_bar.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-          showPopupMenu(view);
-      }
-    });
 
     chatAdapter = new ChatAdapter(messageList, this);
     chatView.setAdapter(chatAdapter);
@@ -132,65 +124,6 @@ public class MainActivity extends AppCompatActivity implements BotReply {
      } else {
        Toast.makeText(this, "failed to connect!", Toast.LENGTH_SHORT).show();
      }
-  }
-
-  private void showPopupMenu(View view) {
-    PopupMenu popupMenu = new PopupMenu(this, view);
-    MenuInflater inflater = popupMenu.getMenuInflater();
-    inflater.inflate(R.menu.navigation_menu, popupMenu.getMenu());
-    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-      @Override
-      public boolean onMenuItemClick(MenuItem item) {
-
-        if (item.getItemId() == R.id.profile) {
-          Toast.makeText(MainActivity.this, "Profile clicked", Toast.LENGTH_SHORT).show();
-          startActivity(new Intent(MainActivity.this, ProfilePage.class));
-          overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-          return true;
-        } else if (item.getItemId() == R.id.notes) {
-          Toast.makeText(MainActivity.this, "Notes clicked", Toast.LENGTH_SHORT).show();
-          startActivity(new Intent(MainActivity.this, NotePage.class));
-          overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-          return true;
-        } else if (item.getItemId() == R.id.tasks) {
-          Toast.makeText(MainActivity.this, "Task clicked", Toast.LENGTH_SHORT).show();
-          startActivity(new Intent(MainActivity.this, TaskPage.class));
-          overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-          return true;
-        } else if (item.getItemId() == R.id.logout) {
-          Toast.makeText(MainActivity.this, "Logout clicked", Toast.LENGTH_SHORT).show();
-          Intent intent = new Intent(MainActivity.this, LogoutPage.class);
-          intent.putExtra("FROM_ACTIVITY","MainActivity");
-          startActivity(intent);
-          overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-          return true;
-        }
-        return false;
-      }
-    });
-    popupMenu.show();
-  }
-
-  boolean doubleBackToExitPressedOnce = false;
-
-  @Override
-  public void onBackPressed() {
-    if (doubleBackToExitPressedOnce) {
-      super.onBackPressed();
-      finishAffinity();
-      return;
-    }
-
-    this.doubleBackToExitPressedOnce = true;
-    Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
-
-    new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-
-      @Override
-      public void run() {
-        doubleBackToExitPressedOnce=false;
-      }
-    }, 2000);
   }
 
 }

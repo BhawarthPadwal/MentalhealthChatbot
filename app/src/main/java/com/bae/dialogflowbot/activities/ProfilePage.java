@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.bae.dialogflowbot.R;
 import com.bumptech.glide.Glide;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -29,6 +30,7 @@ public class ProfilePage extends AppCompatActivity {
     TextView userName_tv, userEmail_tv;
     DatabaseReference databaseReference;
     FirebaseUser currentUser;
+    BottomNavigationView bottomNavigationView;
     public static final String TAG = "ProfilePage";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class ProfilePage extends AppCompatActivity {
         call_all_ids();
         set_pic();
         retrieve_and_set_data();
+        set_bottom_navigation();
 
         edit_profile_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +79,7 @@ public class ProfilePage extends AppCompatActivity {
         userName_tv = findViewById(R.id.profile_name_tv);
         userEmail_tv = findViewById(R.id.profile_email_tv);
         profile_picture = findViewById(R.id.profile_picture);
+        bottomNavigationView = findViewById(R.id.bottomNavigation_profile);
     }
 
     private void retrieve_and_set_data() {
@@ -122,5 +126,27 @@ public class ProfilePage extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void set_bottom_navigation() {
+
+        bottomNavigationView.setSelectedItemId(R.id.bottom_profile);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.bottom_notes) {
+                startActivity(new Intent(ProfilePage.this, NotePage.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                finish();
+            } else if (item.getItemId() == R.id.bottom_calender) {
+                startActivity(new Intent(ProfilePage.this, TaskPage.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                finish();
+            } else if (item.getItemId() == R.id.bottom_home) {
+                startActivity(new Intent(ProfilePage.this, HomePage.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                finish();
+            }
+            return true;
+        });
     }
 }

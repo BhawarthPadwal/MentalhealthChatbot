@@ -31,7 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LogoutPage extends AppCompatActivity {
     private Button main_logout_btn;
-    private ImageView back_btn, profilePicture;
+    private ImageView profilePicture;
     private TextView logout_email;
     DatabaseReference databaseReference;
     FirebaseUser currentUser;
@@ -46,27 +46,10 @@ public class LogoutPage extends AppCompatActivity {
         set_pic();
         retrieve_data();
 
-        back_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent mIntent = getIntent();
-                String previousActivity = mIntent.getStringExtra("FROM_ACTIVITY");
-
-                if ("MainActivity".equalsIgnoreCase(previousActivity)) {
-                    startActivity(new Intent(LogoutPage.this, MainActivity.class));
-                } else {
-                    startActivity(new Intent(LogoutPage.this, ProfilePage.class));
-                }
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                finish();
-            }
-        });
-
 
     }
     private void call_all_ids() {
         main_logout_btn = findViewById(R.id.main_logout_btn);
-        back_btn = findViewById(R.id.back_btn_logout);
         profilePicture = findViewById(R.id.profile_base_image_logout);
         logout_email = findViewById(R.id.logout_email);
     }

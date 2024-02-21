@@ -237,7 +237,7 @@ public class UserRegisterPage extends AppCompatActivity {
                 intent = new Intent(UserRegisterPage.this, UserLoginPage.class);
             } else {
                 // User signed up using Google sign-in, redirect to MainActivity
-                intent = new Intent(UserRegisterPage.this, MainActivity.class);
+                intent = new Intent(UserRegisterPage.this, HomePage.class);
             }
             intent.putExtra("USER_NAME", userName);
             intent.putExtra("USER_EMAIL", userEmail);

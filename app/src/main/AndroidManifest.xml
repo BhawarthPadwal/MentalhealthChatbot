@@ -12,6 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.DialogflowBot">
         <activity
+            android:name=".activities.CommunityPage"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ArticlesPage"
+            android:exported="false" />
+        <activity
+            android:name=".activities.VisualsPage"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CalmingSoundPage"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SleepMeditation"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MeditationPage"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HomePage"
+            android:exported="false" />
+        <activity
             android:name=".activities.CompletedTaskPage"
             android:exported="false" />
         <activity

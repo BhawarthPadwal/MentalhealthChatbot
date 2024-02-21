@@ -36,7 +36,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/app_name_ll_profile"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:layout_above="@id/bottomNavigation_profile">
 
         <!-- -->
 
@@ -417,10 +418,25 @@
 
             </LinearLayout>
 
-
-
         </LinearLayout>
 
     </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/bottomNavigation_profile"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom_navigation"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="2dp"
+        app:menu="@menu/menu"
+        app:itemIconSize="20dp"
+        app:itemIconTint="@drawable/screen_selector"
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="unlabeled"
+        app:itemActiveIndicatorStyle="@drawable/screen_selector" />
 
 </RelativeLayout>

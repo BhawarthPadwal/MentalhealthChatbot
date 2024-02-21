@@ -13,6 +13,7 @@ import com.bae.dialogflowbot.R;
 import com.bae.dialogflowbot.adapters.NoteAdapter;
 import com.bae.dialogflowbot.models.Note;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -27,7 +28,7 @@ import java.util.ArrayList;
 public class NotePage extends AppCompatActivity {
     FloatingActionButton add_note_fab;
     RecyclerView recyclerView;
-    ArrayList<Note> noteArrayList = new ArrayList<>();
+    BottomNavigationView bottomNavigationView;
     NoteAdapter noteAdapter;
     DatabaseReference databaseReference;
     FirebaseUser currentUser;
@@ -39,10 +40,12 @@ public class NotePage extends AppCompatActivity {
         call_all_ids();
         traverse();
         set_notes();
+        set_bottom_navigation();
     }
     private void call_all_ids() {
         add_note_fab = findViewById(R.id.add_note_fab);
         recyclerView = findViewById(R.id.notes_recyclerview);
+        bottomNavigationView = findViewById(R.id.bottomNavigation_notes);
     }
 
     private void set_notes() {
@@ -76,6 +79,27 @@ public class NotePage extends AppCompatActivity {
 //            }
 //        });
 
+    }
+    private void set_bottom_navigation() {
+
+        bottomNavigationView.setSelectedItemId(R.id.bottom_notes);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.bottom_home) {
+                startActivity(new Intent(NotePage.this, HomePage.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                finish();
+            } else if (item.getItemId() == R.id.bottom_calender) {
+                startActivity(new Intent(NotePage.this, TaskPage.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                finish();
+            } else if (item.getItemId() == R.id.bottom_profile) {
+                startActivity(new Intent(NotePage.this, ProfilePage.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                finish();
+            }
+            return true;
+        });
     }
 
     private void traverse() {

@@ -32,15 +32,6 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/back_btn_logout"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:padding="10dp"
-        android:layout_below="@id/app_name_ll_logout"
-        android:src="@drawable/baseline_keyboard_backspace_24"
-        android:contentDescription="@string/backbtn" />
-
     <TextView
         android:id="@+id/logout_txt"
         android:layout_width="wrap_content"
