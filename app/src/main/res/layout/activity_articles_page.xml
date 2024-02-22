@@ -7,11 +7,58 @@
     android:layout_centerInParent="true"
     tools:context=".activities.ArticlesPage">
 
+    <ImageView
+        android:id="@+id/bg_article"
+        android:layout_width="match_parent"
+        android:layout_height="395dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/article_poster"
+        android:contentDescription="stream_img" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/bg_article"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@android:color/darker_gray"/>
+
     <TextView
+        android:id="@+id/article_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Articles Page"
-        android:layout_centerInParent="true"
-        android:textSize="30sp"/>
+        android:text="Shining Moments: Celebrating the Bright Side of Life."
+        android:gravity="center"
+        android:fontFamily="@font/kufam"
+        android:layout_below="@id/view1"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/article_title"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@android:color/darker_gray"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/article_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/view2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"/>
 
 </RelativeLayout>
