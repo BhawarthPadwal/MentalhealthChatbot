@@ -3,19 +3,25 @@ package com.bae.dialogflowbot.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bae.dialogflowbot.R;
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCanceledListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,7 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class ProfilePage extends AppCompatActivity {
-    ImageView logout_btn, change_pass_btn, edit_profile_btn, profile_picture;
+    ImageView logout_btn, change_pass_btn, edit_profile_btn, profile_picture, feedback_iv;
     TextView userName_tv, userEmail_tv;
     DatabaseReference databaseReference;
     FirebaseUser currentUser;
@@ -70,6 +76,13 @@ public class ProfilePage extends AppCompatActivity {
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
+
+        feedback_iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openDialog();
+            }
+        });
     }
 
     private void call_all_ids() {
@@ -80,6 +93,55 @@ public class ProfilePage extends AppCompatActivity {
         userEmail_tv = findViewById(R.id.profile_email_tv);
         profile_picture = findViewById(R.id.profile_picture);
         bottomNavigationView = findViewById(R.id.bottomNavigation_profile);
+        feedback_iv = findViewById(R.id.feedback_iv);
+    }
+
+    private void openDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Feedback");
+        builder.setMessage("Please provide your feedback:");
+
+        // Set up the input
+        final EditText input = new EditText(this);
+        builder.setView(input);
+
+        // Set up the buttons
+        builder.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String feedback = input.getText().toString();
+                // Process the feedback here (e.g., send it to a server, save it locally, etc.)
+                // For example, you can show a toast to confirm the feedback submission
+                updateDataToDatabase(feedback);
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+    }
+
+    private void updateDataToDatabase(String feedback) {
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Feedbacks");
+                databaseReference.push().setValue(feedback).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(getApplicationContext(), "Feedback submitted: " + feedback, Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(ProfilePage.this, "" + task.getException(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }).addOnCanceledListener(new OnCanceledListener() {
+                    @Override
+                    public void onCanceled() {
+                        Toast.makeText(ProfilePage.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     private void retrieve_and_set_data() {

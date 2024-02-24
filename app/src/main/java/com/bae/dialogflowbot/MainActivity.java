@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements BotReply {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     chatView = findViewById(R.id.chatView);
     editMessage = findViewById(R.id.editMessage);
     btnSend = findViewById(R.id.btnSend);

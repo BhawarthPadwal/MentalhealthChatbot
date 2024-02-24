@@ -10,11 +10,11 @@
     <ImageView
         android:id="@+id/bg_visuals"
         android:layout_width="match_parent"
-        android:layout_height="275dp"
+        android:layout_height="230dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:src="@drawable/relax"
+        android:src="@drawable/podcast_bg"
         android:contentDescription="stream_img" />
 
     <View
@@ -31,7 +31,7 @@
         android:id="@+id/visual_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Discovering beauty with every step: a journey through nature's gallery."
+        android:text="Listen, Reflect, Find Peace: Harnessing the Power of Conversation for Mental Wellness."
         android:gravity="center"
         android:fontFamily="@font/kufam"
         android:layout_below="@id/view1"
@@ -56,9 +56,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/view2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
         android:layout_alignParentBottom="true"
-        android:layout_margin="10dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp" />
 
 </RelativeLayout>

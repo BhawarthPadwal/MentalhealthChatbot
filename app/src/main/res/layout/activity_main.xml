@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
-    android:background="@drawable/beach2"
+    android:background="@drawable/chat_bg2"
     tools:context=".MainActivity">
 
   <LinearLayout
@@ -13,7 +13,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="horizontal"
-      android:background="@color/white"
+      android:background="@android:color/transparent"
       android:padding="10dp"
       android:elevation="2dp">
 
@@ -29,7 +29,7 @@
         android:layout_marginStart="5dp"
         android:fontFamily="@font/kufam"
         android:text="@string/thinkwell_ai"
-        android:textColor="@color/logo_purple"
+        android:textColor="@color/white"
         android:textSize="17sp"
         android:textStyle="bold" />
 
@@ -55,6 +55,7 @@
       android:layout_alignParentBottom="true"
       android:layout_marginTop="8dp"
       android:background="@drawable/chat_ll_bg"
+      android:backgroundTint="@android:color/transparent"
       android:padding="16dp"
       android:orientation="horizontal"
       android:elevation="5dp">
@@ -62,11 +63,11 @@
     <EditText
         android:id="@+id/editMessage"
         android:layout_width="320dp"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_social"
         android:hint="Ask what you want to ask!"
         android:inputType="textMultiLine"
-        android:padding="8dp" />
+        android:padding="10dp" />
 
     <ImageView
         android:id="@+id/btnSend"

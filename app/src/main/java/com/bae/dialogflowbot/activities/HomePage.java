@@ -1,5 +1,6 @@
 package com.bae.dialogflowbot.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,16 +10,30 @@ import android.os.Looper;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bae.dialogflowbot.MainActivity;
 import com.bae.dialogflowbot.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class HomePage extends AppCompatActivity {
-
+    TextView dailyThoughts;
     BottomNavigationView bottomNavigationView;
     ImageView chatBot, startMed, startSleepMed, startVisuals, startSounds, startStories, startConnections;
+    DatabaseReference databaseReference;
+    List<String> thoughtList = new ArrayList<>();
+    int currentIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +43,7 @@ public class HomePage extends AppCompatActivity {
         call_all_ids();
         set_bottom_navigation();
         traverse();
+        set_daily_thought();
     }
     private void call_all_ids() {
         bottomNavigationView = findViewById(R.id.bottomNavigation_home);
@@ -38,6 +54,51 @@ public class HomePage extends AppCompatActivity {
         startSounds = findViewById(R.id.sounds_start);
         startStories = findViewById(R.id.stories_start);
         startConnections = findViewById(R.id.community_start);
+        dailyThoughts = findViewById(R.id.daily_thought);
+    }
+
+    private void set_daily_thought() {
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("DailyThoughts");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
+                    String thought = childSnapshot.getValue(String.class);
+                    thoughtList.add(thought);
+                }
+                // Display the first text
+                if (!thoughtList.isEmpty()) {
+                    dailyThoughts.setText(thoughtList.get(currentIndex));
+                }
+                // Schedule text updates every 24 hours
+                scheduleTextUpdates();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(HomePage.this, "Error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void scheduleTextUpdates() {
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        updateText();
+                    }
+                });
+            }
+        }, 24 * 60 * 60 * 1000, 24 * 60 * 60 * 1000); // 24 hours interval
+    }
+    private void updateText() {
+        // Increment index to get the next text
+        currentIndex = (currentIndex + 1) % thoughtList.size();
+        // Update TextView with the next text
+        dailyThoughts.setText(thoughtList.get(currentIndex));
     }
 
     private void set_bottom_navigation() {
@@ -99,7 +160,7 @@ public class HomePage extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(HomePage.this, VisualsPage.class));
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                Toast.makeText(HomePage.this, "Calming Sound Page", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomePage.this, "Podcast Page", Toast.LENGTH_SHORT).show();
             }
         });
         startStories.setOnClickListener(new View.OnClickListener() {
@@ -107,7 +168,7 @@ public class HomePage extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(HomePage.this, ArticlesPage.class));
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                Toast.makeText(HomePage.this, "Calming Sound Page", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomePage.this, "Article Page", Toast.LENGTH_SHORT).show();
             }
         });
         startConnections.setOnClickListener(new View.OnClickListener() {
@@ -115,7 +176,7 @@ public class HomePage extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(HomePage.this, CommunityPage.class));
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                Toast.makeText(HomePage.this, "Calming Sound Page", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomePage.this, "Community Page", Toast.LENGTH_SHORT).show();
             }
         });
     }
