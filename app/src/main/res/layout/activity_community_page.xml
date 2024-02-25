@@ -58,7 +58,40 @@
         android:layout_below="@id/view2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
+        android:layout_above="@id/community_inputLayout"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"/>
+
+    <LinearLayout
+        android:id="@+id/community_inputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_margin="10dp"/>
+        android:background="@drawable/chat_ll_bg"
+        android:backgroundTint="@android:color/transparent"
+        android:padding="16dp"
+        android:orientation="horizontal"
+        android:elevation="5dp">
+
+        <EditText
+            android:id="@+id/community_editMessage"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_social"
+            android:hint="Ask what you want to ask!"
+            android:inputType="textMultiLine"
+            android:padding="15dp" />
+
+        <ImageView
+            android:id="@+id/community_btnSend"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/grey_send_button"
+            android:padding="10dp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/sendbtn"
+            android:layout_marginStart="8dp"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

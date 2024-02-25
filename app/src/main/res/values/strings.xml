@@ -13,4 +13,5 @@
     <string name="blissbook">BlissBook</string>
     <string name="picture_fab">picture_fab</string>
     <string name="image">image</string>
+    <string name="profile_picture">profile_picture</string>
 </resources>

@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -127,21 +129,21 @@ public class ProfilePage extends AppCompatActivity {
 
     private void updateDataToDatabase(String feedback) {
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Feedbacks");
-                databaseReference.push().setValue(feedback).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), "Feedback submitted: " + feedback, Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(ProfilePage.this, "" + task.getException(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }).addOnCanceledListener(new OnCanceledListener() {
-                    @Override
-                    public void onCanceled() {
-                        Toast.makeText(ProfilePage.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-                    }
-                });
+        databaseReference.push().setValue(feedback).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(), "Feedback submitted: " + feedback, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(ProfilePage.this, "" + task.getException(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        }).addOnCanceledListener(new OnCanceledListener() {
+            @Override
+            public void onCanceled() {
+                Toast.makeText(ProfilePage.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void retrieve_and_set_data() {
@@ -210,5 +212,26 @@ public class ProfilePage extends AppCompatActivity {
             }
             return true;
         });
+    }
+    boolean doubleBackToExitPressedOnce = false;
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            finishAffinity();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
     }
 }
