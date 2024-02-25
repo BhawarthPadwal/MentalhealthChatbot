@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import com.bae.dialogflowbot.R;
@@ -31,10 +34,20 @@ public class TaskPage extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     FirebaseUser currentUser;
     DatabaseReference databaseReference;
+    private final Handler handler = new Handler();
+    private final Runnable fabVisibilityRunnable = new Runnable() {
+        @Override
+        public void run() {
+            animateFABVisibility(addTaskFab, true);
+            animateFABVisibility(completedTaskFab, true);
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_page);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         call_all_ids();
         set_add_task();
@@ -46,6 +59,19 @@ public class TaskPage extends AppCompatActivity {
 //        } else {
 //            recyclerView.ba;
 //        }
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    handler.removeCallbacks(fabVisibilityRunnable);
+                    handler.postDelayed(fabVisibilityRunnable, 2000); // Show FABs after 2 seconds of scrolling stop
+                } else {
+                    animateFABVisibility(addTaskFab, false);
+                    animateFABVisibility(completedTaskFab, false);
+                }
+            }
+        });
 
         completedTaskFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,6 +153,31 @@ public class TaskPage extends AppCompatActivity {
                 doubleBackToExitPressedOnce=false;
             }
         }, 2000);
+    }
+
+    private void animateFABVisibility(final View view, final boolean visible) {
+        Animation animation = AnimationUtils.loadAnimation(this, visible ? R.anim.fade_in : R.anim.fade_out);
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                if (visible) {
+                    view.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                if (!visible) {
+                    view.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+        view.startAnimation(animation);
     }
 
     @Override

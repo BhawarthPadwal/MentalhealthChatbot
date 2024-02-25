@@ -10,6 +10,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import com.bae.dialogflowbot.R;
@@ -35,15 +38,35 @@ public class NotePage extends AppCompatActivity {
     NoteAdapter noteAdapter;
     DatabaseReference databaseReference;
     FirebaseUser currentUser;
+    private final Handler handler = new Handler();
+    private final Runnable fabVisibilityRunnable = new Runnable() {
+        @Override
+        public void run() {
+            animateFABVisibility(add_note_fab, true);
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_page);
-
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         call_all_ids();
         traverse();
         set_notes();
         set_bottom_navigation();
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    handler.removeCallbacks(fabVisibilityRunnable);
+                    handler.postDelayed(fabVisibilityRunnable, 2000); // Show FABs after 2 seconds of scrolling stop
+                } else {
+                    animateFABVisibility(add_note_fab, false);
+                }
+            }
+        });
     }
     private void call_all_ids() {
         add_note_fab = findViewById(R.id.add_note_fab);
@@ -135,6 +158,31 @@ public class NotePage extends AppCompatActivity {
                 doubleBackToExitPressedOnce=false;
             }
         }, 2000);
+    }
+
+    private void animateFABVisibility(final View view, final boolean visible) {
+        Animation animation = AnimationUtils.loadAnimation(this, visible ? R.anim.fade_in : R.anim.fade_out);
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                if (visible) {
+                    view.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                if (!visible) {
+                    view.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+        view.startAnimation(animation);
     }
 
     @Override

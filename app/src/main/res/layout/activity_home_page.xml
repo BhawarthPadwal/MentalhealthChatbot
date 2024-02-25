@@ -25,10 +25,9 @@
                 android:layout_alignParentTop="true"
                 android:layout_toLeftOf="@id/chatbot_icon"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/kufam"
-                android:text="Good Morning, Bhawarth!"
-                android:textColor="@color/logo_purple"
+                android:text="Good Day"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -40,7 +39,7 @@
                 android:layout_marginStart="20dp"
                 android:fontFamily="@font/kufam"
                 android:text="We wish you have a good day!"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <ImageView
                 android:id="@+id/chatbot_icon"
@@ -49,7 +48,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/picture_fab_bg"
@@ -64,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/user_asking_tv"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/round_social"
@@ -81,7 +80,7 @@
                     android:fontFamily="@font/kufam"
                     android:text="Daily Thought"
                     android:textColor="@color/white"
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
 
@@ -121,7 +120,6 @@
                 android:layout_marginStart="20dp"
                 android:fontFamily="@font/kufam"
                 android:text="Featured"
-                android:textColor="@color/logo_purple"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 

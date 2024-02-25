@@ -7,42 +7,50 @@
     android:layout_centerInParent="true"
     tools:context=".activities.TaskPage">
 
-    <LinearLayout
-        android:id="@+id/app_name_ll_schedule"
+    <ImageView
+        android:id="@+id/bg_tasking"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp">
+        android:layout_height="275dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/tasking_sec_bg"
+        android:contentDescription="stream_img" />
 
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/thinkwell_ai_logo"
-            android:contentDescription="@string/logo"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_marginStart="5dp"
-            android:fontFamily="@font/kufam"
-            android:text="@string/thinkwell_ai"
-            android:textColor="@color/logo_purple"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/bg_tasking"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@android:color/darker_gray"/>
 
     <TextView
-        android:id="@+id/task_txt"
+        android:id="@+id/tasking_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/app_name_ll_schedule"
-        android:layout_centerInParent="true"
+        android:text="Perfection is only a list away."
+        android:gravity="center"
         android:fontFamily="@font/kufam"
-        android:text="TranquilTasks"
-        android:textColor="@color/logo_purple"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:layout_below="@id/view1"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/tasking_title"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@android:color/darker_gray"/>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
@@ -59,8 +67,9 @@
         android:id="@+id/task_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/task_txt"
-        android:layout_centerInParent="true"
+        android:layout_below="@id/view2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:layout_above="@id/bottomNavigation_task"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

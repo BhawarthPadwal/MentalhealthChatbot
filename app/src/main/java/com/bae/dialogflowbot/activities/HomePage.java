@@ -3,7 +3,9 @@ package com.bae.dialogflowbot.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -23,12 +25,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class HomePage extends AppCompatActivity {
-    TextView dailyThoughts;
+    TextView dailyThoughts, userGreeting;
     BottomNavigationView bottomNavigationView;
     ImageView chatBot, startMed, startSleepMed, startVisuals, startSounds, startStories, startConnections;
     DatabaseReference databaseReference;
@@ -44,6 +47,12 @@ public class HomePage extends AppCompatActivity {
         set_bottom_navigation();
         traverse();
         set_daily_thought();
+
+        SharedPreferences sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+        String userName = sharedPreferences.getString("USER_NAME", "");
+        String greetings = generateGreeting();
+        String mainGreeting = greetings + ", " + userName + "!";
+        userGreeting.setText(mainGreeting);
     }
     private void call_all_ids() {
         bottomNavigationView = findViewById(R.id.bottomNavigation_home);
@@ -55,6 +64,7 @@ public class HomePage extends AppCompatActivity {
         startStories = findViewById(R.id.stories_start);
         startConnections = findViewById(R.id.community_start);
         dailyThoughts = findViewById(R.id.daily_thought);
+        userGreeting = findViewById(R.id.user_greetings);
     }
 
     private void set_daily_thought() {
@@ -179,6 +189,24 @@ public class HomePage extends AppCompatActivity {
                 Toast.makeText(HomePage.this, "Community Page", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private String generateGreeting() {
+        Calendar cal = Calendar.getInstance();
+        int hour = cal.get(Calendar.HOUR_OF_DAY);
+
+        String greeting;
+        if (hour >= 5 && hour < 12) {
+            greeting = "Good morning";
+        } else if (hour >= 12 && hour < 17) {
+            greeting = "Good afternoon";
+        } else if (hour >= 17 && hour < 21) {
+            greeting = "Good evening";
+        } else {
+            greeting = "Good night";
+        }
+
+        return greeting;
     }
 
     boolean doubleBackToExitPressedOnce = false;

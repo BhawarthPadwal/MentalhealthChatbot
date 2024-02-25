@@ -1,6 +1,10 @@
 package com.bae.dialogflowbot.adapters;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
@@ -15,6 +19,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bae.dialogflowbot.MyAlarmReceiver;
 import com.bae.dialogflowbot.R;
 import com.bae.dialogflowbot.bottomfragment.AddNewTask;
 import com.bae.dialogflowbot.models.Task;
@@ -32,9 +37,11 @@ import java.util.Map;
 
 public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.MyTaskViewHolder> {
     Context context;
+    AlarmManager alarmManager;
     public TaskAdapter(@NonNull FirebaseRecyclerOptions<Task> options, Context context) {
         super(options);
         this.context = context;
+        this.alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
     }
     FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
     DatabaseReference databaseReference;
@@ -61,15 +68,17 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.MyTas
             String selectedWeek = getWeekDayAbbreviation(dayOfWeek);
             holder.taskDayOfWeek.setText(selectedWeek);
 
-            int status = compareDueDate(year, month, dayOfMonth, hourOfDay, minute);
-
-            if (status == 1) {
+            int alarmStatus = setAlarmAtDueTime(year, month, dayOfMonth, hourOfDay, minute, 0,model);
+            if (alarmStatus == 1) {
+                Toast.makeText(context, "Alarm set successfully", Toast.LENGTH_SHORT).show();
                 holder.taskStatus_tv.setText("Upcoming");
-            } else if (status == 0) {
-                holder.taskStatus_tv.setText("Overdue");
+                holder.taskStatus_tv.setTextColor(Color.rgb(76, 187, 23));
             } else {
-                holder.taskStatus_tv.setText("Now");
+                //Toast.makeText(context, "Due date has already passed, alarm not set", Toast.LENGTH_SHORT).show();
+                holder.taskStatus_tv.setText("Overdue");
+                holder.taskStatus_tv.setTextColor(Color.rgb(204,0,0));
             }
+
 
         } else {
             holder.taskDayOfWeek.setText("");
@@ -78,7 +87,6 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.MyTas
         }
         String docId = this.getRef(position).getKey();
         holder.menu_btn.setOnClickListener((v)->{
-            Toast.makeText(context, "Menu clicked", Toast.LENGTH_SHORT).show();
             PopupMenu popupMenu = new PopupMenu(context, holder.menu_btn);
             MenuInflater inflater = popupMenu.getMenuInflater();
             inflater.inflate(R.menu.task_menu, popupMenu.getMenu());
@@ -149,19 +157,35 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.MyTas
             return "Invalid Day";
         }
     }
-    private int compareDueDate(Integer year, Integer month, Integer dayOfMonth, Integer hourOfDay, Integer minute) {
-        Calendar currentDateTime = Calendar.getInstance() ;
+
+    private void setAlarm(long alarmTimeMillis, Task task) {
+        // Set the alarm using AlarmManager
+        Intent alarmIntent = new Intent(context, MyAlarmReceiver.class);
+        alarmIntent.putExtra("title", task.getTitle()); // Pass task title
+        alarmIntent.putExtra("description", task.getDescription()); // Pass task description
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, alarmTimeMillis, pendingIntent);
+    }
+
+    private int setAlarmAtDueTime(Integer year, Integer month, Integer dayOfMonth, Integer hourOfDay, Integer minute, long offsetMillis, Task model) {
         Calendar selectedDateTime = Calendar.getInstance();
-        selectedDateTime.set(year, month, dayOfMonth, hourOfDay, minute);
+        selectedDateTime.set(year, month - 1, dayOfMonth, hourOfDay, minute); // Months are 0-indexed, so subtract 1
 
-        if (selectedDateTime.before(currentDateTime)) {
+        long selectedTimeMillis = selectedDateTime.getTimeInMillis();
+
+        // Add the offset to the due time
+        long alarmTimeMillis = selectedTimeMillis + offsetMillis;
+
+        // Check if the alarm time is in the past
+        if (alarmTimeMillis <= System.currentTimeMillis()) {
+            // Due date + offset is in the past, so alarm won't be set
+            Log.d("Alarm", "Due date has already passed, alarm not set");
             return 0;
-        } else if (selectedDateTime.after(currentDateTime)) {
-            return 1;
         } else {
-            return 10;
+            // Set the alarm for the adjusted time
+            setAlarm(alarmTimeMillis, model);
+            return 1; // Alarm set for the adjusted time
         }
-
     }
     private void onTaskCompletion(String docId, Task task) {
 
