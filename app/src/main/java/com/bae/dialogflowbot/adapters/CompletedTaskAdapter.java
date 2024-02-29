@@ -45,7 +45,7 @@ public class CompletedTaskAdapter extends FirebaseRecyclerAdapter<Task, Complete
             Integer month = dateData.get("month"); // Extracting the month value
             Integer year = dateData.get("year"); // Extracting the year value
 
-            String date = "Due was on " +dayOfMonth + "/" + month + "/" + year;
+            String date = "Done on " +dayOfMonth + "/" + month + "/" + year;
             holder.comp_date_tv.setText(date);
 
         } else {

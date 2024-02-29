@@ -3,10 +3,10 @@
 
     <item
         android:state_selected="true"
-        android:color="@color/logo_purple" />
+        android:color="@color/black" />
 
     <item
         android:state_selected="false"
-        android:color="@color/black" />
+        android:color="@android:color/darker_gray" />
 
 </selector>

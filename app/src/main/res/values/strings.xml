@@ -14,4 +14,5 @@
     <string name="picture_fab">picture_fab</string>
     <string name="image">image</string>
     <string name="profile_picture">profile_picture</string>
+    <string name="delete"><html><u>Delete note</u></html></string>
 </resources>

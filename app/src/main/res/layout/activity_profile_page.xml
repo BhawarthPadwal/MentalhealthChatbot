@@ -7,85 +7,59 @@
     android:layout_centerInParent="true"
     tools:context=".activities.ProfilePage">
 
-    <LinearLayout
-        android:id="@+id/app_name_ll_profile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/thinkwell_ai_logo"
-            android:contentDescription="@string/logo"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_marginStart="5dp"
-            android:fontFamily="@font/kufam"
-            android:text="@string/thinkwell_ai"
-            android:textColor="@color/logo_purple"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/app_name_ll_profile"
-        android:layout_centerInParent="true"
-        android:layout_above="@id/bottomNavigation_profile">
-
-        <!-- -->
+        android:layout_above="@id/bottomNavigation_profile"
+        android:layout_centerInParent="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/profile_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:fontFamily="@font/kufam"
-                android:text="Profile"
-                android:textColor="@color/logo_purple"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+<!--            <TextView-->
+<!--                android:id="@+id/profile_txt"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_marginTop="50dp"-->
+<!--                android:layout_marginEnd="20dp"-->
+<!--                android:fontFamily="@font/kufam"-->
+<!--                android:text="Your Profile"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold" />-->
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:orientation="vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/profile_background"
                 android:elevation="2dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp" >
+                android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/profile_picture_card"
                     android:layout_width="125dp"
                     android:layout_height="125dp"
-                    android:layout_marginTop="20dp"
                     android:layout_gravity="center"
-                    app:cardCornerRadius="60.5dp"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@android:color/darker_gray"
                     android:elevation="0dp"
-                    android:backgroundTint="@android:color/darker_gray">
+                    app:cardCornerRadius="60.5dp">
 
                     <ImageView
                         android:id="@+id/profile_picture"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/profile"
-                        android:contentDescription="profile_picture"/>
+                        android:contentDescription="profile_picture"
+                        android:src="@drawable/profile" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -93,77 +67,80 @@
                     android:id="@+id/profile_name_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="User Name"
-                    android:textSize="20dp"
-                    android:fontFamily="@font/kufam"
-                    android:textColor="@color/white"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/kufam"
+                    android:text="User Name"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"/>
 
                 <TextView
                     android:id="@+id/profile_email_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="user_email@gmail.com"
-                    android:textSize="18dp"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/kufam"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="0dp"/>
+                    android:layout_marginTop="0dp"
+                    android:fontFamily="@font/kufam"
+                    android:text="user_email@gmail.com"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="GENERAL"
-                android:textSize="18dp"
+                android:layout_marginStart="22dp"
                 android:fontFamily="@font/kufam"
-                android:layout_marginStart="22dp"/>
+                android:text="General"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
 
             <!--  General first-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp"
+                android:layout_height="80dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="20dp"
-                android:background="@color/white"
-                android:elevation="2dp">
+                android:background="@drawable/round_social"
+                android:elevation="2dp"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/setting"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
-                    android:padding="10dp"/>
+                    android:padding="10dp"
+                    android:src="@drawable/setting" />
 
                 <LinearLayout
                     android:layout_width="200dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
                     android:layout_marginStart="20dp"
-                    android:padding="5dp">
+                    android:orientation="vertical"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingEnd="5dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:text="Profile Settings"
                         android:fontFamily="@font/kufam"
-                        android:textStyle="bold"
-                        android:textColor="@color/logo_purple"
-                        android:textSize="20dp" />
+                        android:text="Profile Settings"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.75"
-                        android:text="Update and modify your profile"
-                        android:textSize="11dp"
-                        android:fontFamily="@font/kufam"/>
+                        android:fontFamily="@font/kufam"
+                        android:text="Update your profile"
+                        android:textSize="12sp"/>
 
                 </LinearLayout>
 
@@ -171,10 +148,10 @@
                     android:id="@+id/edit_profile"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
-                    android:src="@drawable/baseline_arrow_forward_ios_24"
-                    android:padding="12dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="35dp"/>
+                    android:layout_marginStart="35dp"
+                    android:padding="12dp"
+                    android:src="@drawable/baseline_arrow_forward_ios_24" />
 
 
             </LinearLayout>
@@ -182,46 +159,47 @@
             <!--  General second-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_height="80dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:background="@color/white"
-                android:elevation="2dp">
+                android:background="@drawable/round_social"
+                android:elevation="2dp"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/privacy"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
-                    android:padding="10dp"/>
+                    android:padding="10dp"
+                    android:src="@drawable/privacy" />
 
                 <LinearLayout
                     android:layout_width="200dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
                     android:layout_marginStart="20dp"
-                    android:padding="5dp">
+                    android:orientation="vertical"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingEnd="5dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:text="Privacy"
                         android:fontFamily="@font/kufam"
-                        android:textStyle="bold"
-                        android:textColor="@color/logo_purple"
-                        android:textSize="20dp" />
+                        android:text="Privacy"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.75"
+                        android:fontFamily="@font/kufam"
                         android:text="Change your password"
-                        android:textSize="11dp"
-                        android:fontFamily="@font/kufam"/>
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 
@@ -229,10 +207,10 @@
                     android:id="@+id/change_password_profile"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
-                    android:src="@drawable/baseline_arrow_forward_ios_24"
-                    android:padding="12dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="35dp"/>
+                    android:layout_marginStart="35dp"
+                    android:padding="12dp"
+                    android:src="@drawable/baseline_arrow_forward_ios_24" />
 
 
             </LinearLayout>
@@ -240,46 +218,47 @@
             <!--  General third-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_height="80dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:background="@color/white"
-                android:elevation="2dp">
+                android:background="@drawable/round_social"
+                android:elevation="2dp"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/feedback"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
-                    android:padding="10dp"/>
+                    android:padding="10dp"
+                    android:src="@drawable/feedback" />
 
                 <LinearLayout
                     android:layout_width="200dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
                     android:layout_marginStart="20dp"
-                    android:padding="5dp">
+                    android:orientation="vertical"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingEnd="5dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:text="Feedback"
                         android:fontFamily="@font/kufam"
-                        android:textStyle="bold"
-                        android:textColor="@color/logo_purple"
-                        android:textSize="20dp" />
+                        android:text="Feedback"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.75"
+                        android:fontFamily="@font/kufam"
                         android:text="Put your personal feedback"
-                        android:textSize="11dp"
-                        android:fontFamily="@font/kufam"/>
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 
@@ -287,10 +266,10 @@
                     android:id="@+id/feedback_iv"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
-                    android:src="@drawable/baseline_arrow_forward_ios_24"
-                    android:padding="12dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="35dp"/>
+                    android:layout_marginStart="35dp"
+                    android:padding="12dp"
+                    android:src="@drawable/baseline_arrow_forward_ios_24" />
 
 
             </LinearLayout>
@@ -298,46 +277,47 @@
             <!--  General fourth-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_height="80dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:background="@color/white"
-                android:elevation="2dp">
+                android:background="@drawable/round_social"
+                android:elevation="2dp"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/exit"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
-                    android:padding="10dp"/>
+                    android:padding="10dp"
+                    android:src="@drawable/exit" />
 
                 <LinearLayout
                     android:layout_width="200dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
                     android:layout_marginStart="20dp"
-                    android:padding="5dp">
+                    android:orientation="vertical"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingEnd="5dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:text="Logout"
                         android:fontFamily="@font/kufam"
-                        android:textStyle="bold"
-                        android:textColor="@color/logo_purple"
-                        android:textSize="20dp" />
+                        android:text="Logout"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.75"
+                        android:fontFamily="@font/kufam"
                         android:text="Logout from your account."
-                        android:textSize="11dp"
-                        android:fontFamily="@font/kufam"/>
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 
@@ -345,79 +325,79 @@
                     android:id="@+id/logout_btn_profile"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
-                    android:src="@drawable/baseline_arrow_forward_ios_24"
-                    android:padding="12dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="35dp"/>
+                    android:layout_marginStart="35dp"
+                    android:padding="12dp"
+                    android:src="@drawable/baseline_arrow_forward_ios_24" />
 
             </LinearLayout>
 
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Data"-->
-<!--                android:textSize="18dp"-->
-<!--                android:fontFamily="@font/kufam"-->
-<!--                android:layout_marginStart="22dp"-->
-<!--                android:layout_marginTop="20dp"/>-->
+            <!--            <TextView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Data"-->
+            <!--                android:textSize="18dp"-->
+            <!--                android:fontFamily="@font/kufam"-->
+            <!--                android:layout_marginStart="22dp"-->
+            <!--                android:layout_marginTop="20dp"/>-->
 
-<!--            &lt;!&ndash;  Data one&ndash;&gt;-->
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="70dp"-->
-<!--                android:orientation="horizontal"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:layout_marginStart="20dp"-->
-<!--                android:layout_marginEnd="20dp"-->
-<!--                android:background="@color/white"-->
-<!--                android:elevation="2dp">-->
+            <!--            &lt;!&ndash;  Data one&ndash;&gt;-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="70dp"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:layout_marginTop="20dp"-->
+            <!--                android:layout_marginStart="20dp"-->
+            <!--                android:layout_marginEnd="20dp"-->
+            <!--                android:background="@color/white"-->
+            <!--                android:elevation="2dp">-->
 
-<!--                <ImageView-->
-<!--                    android:layout_width="50dp"-->
-<!--                    android:layout_height="50dp"-->
-<!--                    android:src="@drawable/analytics_555058"-->
-<!--                    android:layout_gravity="center_vertical"-->
-<!--                    android:layout_marginStart="10dp"-->
-<!--                    android:padding="10dp"/>-->
+            <!--                <ImageView-->
+            <!--                    android:layout_width="50dp"-->
+            <!--                    android:layout_height="50dp"-->
+            <!--                    android:src="@drawable/analytics_555058"-->
+            <!--                    android:layout_gravity="center_vertical"-->
+            <!--                    android:layout_marginStart="10dp"-->
+            <!--                    android:padding="10dp"/>-->
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="200dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:orientation="vertical"-->
-<!--                    android:layout_marginStart="20dp"-->
-<!--                    android:padding="5dp">-->
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="200dp"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:orientation="vertical"-->
+            <!--                    android:layout_marginStart="20dp"-->
+            <!--                    android:padding="5dp">-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="0dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:text="Analytics"-->
-<!--                        android:fontFamily="@font/kufam"-->
-<!--                        android:textStyle="bold"-->
-<!--                        android:textColor="@color/logo_purple"-->
-<!--                        android:textSize="20dp" />-->
+            <!--                    <TextView-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="0dp"-->
+            <!--                        android:layout_weight="1"-->
+            <!--                        android:text="Analytics"-->
+            <!--                        android:fontFamily="@font/kufam"-->
+            <!--                        android:textStyle="bold"-->
+            <!--                        android:textColor="@color/logo_purple"-->
+            <!--                        android:textSize="20dp" />-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="0dp"-->
-<!--                        android:layout_weight="0.75"-->
-<!--                        android:text="Track your data here"-->
-<!--                        android:textSize="11dp"-->
-<!--                        android:fontFamily="@font/kufam"/>-->
+            <!--                    <TextView-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="0dp"-->
+            <!--                        android:layout_weight="0.75"-->
+            <!--                        android:text="Track your data here"-->
+            <!--                        android:textSize="11dp"-->
+            <!--                        android:fontFamily="@font/kufam"/>-->
 
-<!--                </LinearLayout>-->
+            <!--                </LinearLayout>-->
 
-<!--                <ImageView-->
-<!--                    android:id="@+id/data_btn_profile"-->
-<!--                    android:layout_width="50dp"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:src="@drawable/baseline_arrow_forward_ios_24"-->
-<!--                    android:padding="12dp"-->
-<!--                    android:layout_gravity="center_vertical"-->
-<!--                    android:layout_marginStart="35dp"/>-->
+            <!--                <ImageView-->
+            <!--                    android:id="@+id/data_btn_profile"-->
+            <!--                    android:layout_width="50dp"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:src="@drawable/baseline_arrow_forward_ios_24"-->
+            <!--                    android:padding="12dp"-->
+            <!--                    android:layout_gravity="center_vertical"-->
+            <!--                    android:layout_marginStart="35dp"/>-->
 
 
-<!--            </LinearLayout>-->
+            <!--            </LinearLayout>-->
 
         </LinearLayout>
 

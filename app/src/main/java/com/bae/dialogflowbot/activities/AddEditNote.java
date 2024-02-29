@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AddEditNote extends AppCompatActivity {
-    ImageView back_btn;
+    //ImageView back_btn;
     Button add_note_btn;
     EditText title_et, content_et;
     TextView pageTitle, delete_note_tv;
@@ -41,7 +41,7 @@ public class AddEditNote extends AppCompatActivity {
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         call_all_ids();
-        traverse();
+        //traverse();
         receive_data();
         delete_note();
 
@@ -54,7 +54,7 @@ public class AddEditNote extends AppCompatActivity {
 
     }
     private void call_all_ids() {
-        back_btn = findViewById(R.id.back_btn_add_note);
+//        back_btn = findViewById(R.id.back_btn_add_note);
         add_note_btn = findViewById(R.id.insert_note_btn);
         title_et = findViewById(R.id.note_title_et);
         content_et = findViewById(R.id.note_content_et);
@@ -75,7 +75,7 @@ public class AddEditNote extends AppCompatActivity {
         content_et.setText(content);
 
         if (isEditMode) {
-            pageTitle.setText("Edit your note!");
+            pageTitle.setText("Edit your Note!");
             delete_note_tv.setVisibility(View.VISIBLE);
         }
     }
@@ -170,14 +170,14 @@ public class AddEditNote extends AppCompatActivity {
         });
 
     }
-    private void traverse() {
-        back_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(AddEditNote.this, NotePage.class));
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                finish();
-            }
-        });
-    }
+//    private void traverse() {
+//        back_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(AddEditNote.this, NotePage.class));
+//                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+//                finish();
+//            }
+//        });
+//    }
 }

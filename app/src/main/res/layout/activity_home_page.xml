@@ -25,34 +25,33 @@
                 android:layout_alignParentTop="true"
                 android:layout_toLeftOf="@id/chatbot_icon"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="40dp"
                 android:fontFamily="@font/kufam"
                 android:text="Good Day"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
 
-            <TextView
-                android:id="@+id/user_asking_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/user_greetings"
-                android:layout_marginStart="20dp"
-                android:fontFamily="@font/kufam"
-                android:text="We wish you have a good day!"
-                android:textSize="16sp" />
+<!--            <TextView-->
+<!--                android:id="@+id/user_asking_tv"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/user_greetings"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:fontFamily="@font/kufam"-->
+<!--                android:text="We wish you have a good day!" />-->
 
             <ImageView
                 android:id="@+id/chatbot_icon"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginTop="40dp"
                 android:background="@drawable/picture_fab_bg"
-                android:backgroundTint="@color/light_purple"
+                android:backgroundTint="@color/white"
                 android:elevation="5dp"
                 android:padding="2dp"
                 android:src="@drawable/chat" />
@@ -61,13 +60,14 @@
                 android:id="@+id/daily_thought_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/user_asking_tv"
+                android:layout_below="@id/user_greetings"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/round_social"
-                android:backgroundTint="@android:color/holo_red_light">
+                android:backgroundTint="#F9F5F6"
+                android:elevation="2dp">
 
                 <TextView
                     android:id="@+id/daily_task_tv"
@@ -79,9 +79,8 @@
                     android:layout_marginTop="15dp"
                     android:fontFamily="@font/kufam"
                     android:text="Daily Thought"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
 
 
                 <TextView
@@ -94,7 +93,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="15dp"
                     android:fontFamily="@font/kufam"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/black"/>
 
 <!--                <ImageView-->
 <!--                    android:id="@+id/play_button"-->
@@ -120,8 +119,9 @@
                 android:layout_marginStart="20dp"
                 android:fontFamily="@font/kufam"
                 android:text="Featured"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
 
             <GridLayout
                 android:layout_width="match_parent"
@@ -141,9 +141,9 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="5dp"
-                    android:backgroundTint="@android:color/holo_blue_light"
+                    android:backgroundTint="#E8DFF5"
                     app:cardCornerRadius="15dp"
-                    app:cardElevation="0dp">
+                    app:cardElevation="2dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -159,9 +159,9 @@
                             android:layout_marginBottom="10dp"
                             android:fontFamily="@font/kufam"
                             android:text="Meditation"
-                            android:textColor="@color/white"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"/>
 
                         <ImageView
                             android:layout_width="70dp"
@@ -173,7 +173,7 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="10dp"
                             android:padding="5dp"
-                            android:src="@drawable/lotus" />
+                            android:src="@drawable/new_lotus" />
 
                         <ImageView
                             android:id="@+id/meditation_start"
@@ -186,7 +186,7 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="10dp"
                             android:padding="10dp"
-                            android:src="@drawable/play" />
+                            android:src="@drawable/new_next_btn" />
 
                         <!--<Button
                             android:layout_width="75sp"
@@ -213,9 +213,9 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="5dp"
-                    android:backgroundTint="@android:color/holo_green_light"
+                    android:backgroundTint="#fce1e4"
                     app:cardCornerRadius="15dp"
-                    app:cardElevation="0dp">
+                    app:cardElevation="2dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -231,9 +231,9 @@
                             android:layout_marginBottom="10dp"
                             android:fontFamily="@font/kufam"
                             android:text="Sleep Meditation"
-                            android:textColor="@color/white"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"/>
 
                         <ImageView
                             android:layout_width="70dp"
@@ -245,7 +245,7 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="10dp"
                             android:padding="5dp"
-                            android:src="@drawable/sleeping_meditation_icon" />
+                            android:src="@drawable/sleepmed" />
 
                         <ImageView
                             android:id="@+id/sleep_start"
@@ -258,7 +258,7 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="10dp"
                             android:padding="10dp"
-                            android:src="@drawable/play" />
+                            android:src="@drawable/new_next_btn" />
 
                     </RelativeLayout>
 
@@ -270,9 +270,9 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="5dp"
-                    android:backgroundTint="@android:color/holo_purple"
+                    android:backgroundTint="#fcf4dd"
                     app:cardCornerRadius="15dp"
-                    app:cardElevation="0dp">
+                    app:cardElevation="2dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -288,9 +288,9 @@
                             android:layout_marginBottom="10dp"
                             android:fontFamily="@font/kufam"
                             android:text="Podcast"
-                            android:textColor="@color/white"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"/>
 
                         <ImageView
                             android:layout_width="70dp"
@@ -302,7 +302,7 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="10dp"
                             android:padding="5dp"
-                            android:src="@drawable/podcast" />
+                            android:src="@drawable/new_padcast" />
 
                         <ImageView
                             android:id="@+id/visuals_start"
@@ -315,7 +315,7 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="10dp"
                             android:padding="10dp"
-                            android:src="@drawable/play" />
+                            android:src="@drawable/new_next_btn" />
 
                     </RelativeLayout>
 
@@ -327,9 +327,9 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="5dp"
-                    android:backgroundTint="@android:color/holo_orange_light"
+                    android:backgroundTint="#ddedea"
                     app:cardCornerRadius="15dp"
-                    app:cardElevation="0dp">
+                    app:cardElevation="2dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -345,9 +345,9 @@
                             android:layout_marginBottom="10dp"
                             android:fontFamily="@font/kufam"
                             android:text="Calming sounds"
-                            android:textColor="@color/white"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"/>
 
                         <ImageView
                             android:layout_width="70dp"
@@ -359,7 +359,7 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="10dp"
                             android:padding="5dp"
-                            android:src="@drawable/calming_sounds" />
+                            android:src="@drawable/new_sound" />
 
                         <ImageView
                             android:id="@+id/sounds_start"
@@ -372,7 +372,7 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="10dp"
                             android:padding="10dp"
-                            android:src="@drawable/play" />
+                            android:src="@drawable/new_next_btn" />
 
                     </RelativeLayout>
 
@@ -384,9 +384,9 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="5dp"
-                    android:backgroundTint="@android:color/darker_gray"
+                    android:backgroundTint="#daeaf6"
                     app:cardCornerRadius="15dp"
-                    app:cardElevation="0dp">
+                    app:cardElevation="2dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -402,9 +402,9 @@
                             android:layout_marginBottom="10dp"
                             android:fontFamily="@font/kufam"
                             android:text="Soulful stories"
-                            android:textColor="@color/white"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"/>
 
                         <ImageView
                             android:layout_width="70dp"
@@ -416,7 +416,7 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="10dp"
                             android:padding="5dp"
-                            android:src="@drawable/soulful_stories" />
+                            android:src="@drawable/stories" />
 
                         <ImageView
                             android:id="@+id/stories_start"
@@ -429,7 +429,7 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="10dp"
                             android:padding="10dp"
-                            android:src="@drawable/play" />
+                            android:src="@drawable/new_next_btn" />
 
                     </RelativeLayout>
 
@@ -441,9 +441,9 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="5dp"
-                    android:backgroundTint="@android:color/holo_red_light"
+                    android:backgroundTint="#f0efeb"
                     app:cardCornerRadius="15dp"
-                    app:cardElevation="0dp">
+                    app:cardElevation="2dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -459,9 +459,9 @@
                             android:layout_marginBottom="10dp"
                             android:fontFamily="@font/kufam"
                             android:text="Community connection"
-                            android:textColor="@color/white"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"/>
 
                         <ImageView
                             android:layout_width="70dp"
@@ -473,7 +473,7 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="10dp"
                             android:padding="5dp"
-                            android:src="@drawable/community_icon" />
+                            android:src="@drawable/new_comm" />
 
                         <ImageView
                             android:id="@+id/community_start"
@@ -486,7 +486,7 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="10dp"
                             android:padding="10dp"
-                            android:src="@drawable/play" />
+                            android:src="@drawable/new_next_btn" />
 
                     </RelativeLayout>
 

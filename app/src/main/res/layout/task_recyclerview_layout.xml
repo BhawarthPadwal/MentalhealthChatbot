@@ -3,11 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="15dp"
-    android:layout_marginStart="10dp"
-    android:layout_marginEnd="10dp"
+    android:padding="8dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
     android:layout_marginBottom="5dp"
     android:background="@drawable/round_social"
+    android:backgroundTint="@color/white"
     android:elevation="5dp">
 
     <LinearLayout
@@ -23,7 +24,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="Mon"
-            android:textSize="20sp"
+            android:textColor="@color/black"
             android:fontFamily="@font/kufam"
             android:gravity="center"
             android:layout_gravity="center"/>
@@ -34,10 +35,10 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="15"
-            android:textColor="@color/logo_purple"
-            android:textSize="20sp"
+            android:textColor="@color/black"
             android:fontFamily="@font/kufam"
             android:gravity="center"
+            android:textStyle="bold"
             android:layout_gravity="center"/>
 
         <TextView
@@ -46,7 +47,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="Feb"
-            android:textSize="20sp"
+            android:textColor="@color/black"
             android:fontFamily="@font/kufam"
             android:gravity="center"
             android:layout_gravity="center"/>
@@ -55,9 +56,11 @@
     </LinearLayout>
 
     <View
-        android:layout_width="2dp"
+        android:layout_width="1.5dp"
         android:layout_height="match_parent"
-        android:background="@android:color/darker_gray"/>
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"/>
     
     <RelativeLayout
         android:layout_width="0dp"
@@ -71,10 +74,9 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
             android:fontFamily="@font/kufam"
             android:text="Task Title"
-            android:textSize="15sp"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 
         <ImageView
@@ -82,20 +84,19 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_toRightOf="@id/task_title_tv"
-            android:src="@drawable/meatball"
-            android:padding="10dp"/>
+            android:src="@drawable/kebab_icone"
+            android:padding="12dp"/>
 
         <TextView
             android:id="@+id/task_description_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/task_options"
+            android:layout_below="@id/task_title_tv"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="5dp"
             android:fontFamily="@font/kufam"
-            android:text="Task Description"
-            android:textSize="15sp" />
+            android:textColor="@color/black"
+            android:text="Task Description" />
 
         <TextView
             android:id="@+id/task_time_tv"
@@ -103,8 +104,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/task_description_tv"
             android:text="at 12:50"
-            android:textSize="15sp"
-            android:layout_marginTop="5dp"
+            android:textSize="14sp"
+            android:textColor="@color/black"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:fontFamily="@font/kufam" />
@@ -115,9 +116,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/task_time_tv"
             android:text="Upcomming"
-            android:textSize="15sp"
             android:textStyle="bold"
             android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
             android:fontFamily="@font/kufam" />
         
     </RelativeLayout>

@@ -7,44 +7,10 @@
     android:layout_centerInParent="true"
     tools:context=".activities.AddEditNote">
 
-    <LinearLayout
-        android:id="@+id/app_name_ll_add_notes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/thinkwell_ai_logo"
-            android:contentDescription="@string/logo"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_marginStart="5dp"
-            android:fontFamily="@font/kufam"
-            android:text="@string/thinkwell_ai"
-            android:textColor="@color/logo_purple"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/back_btn_add_note"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:padding="10dp"
-        android:layout_below="@id/app_name_ll_add_notes"
-        android:src="@drawable/baseline_keyboard_backspace_24"
-        android:contentDescription="@string/backbtn" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/app_name_ll_add_notes">
+        android:layout_height="match_parent">
 
 
         <LinearLayout
@@ -57,20 +23,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="50dp"
                 android:fontFamily="@font/kufam"
-                android:textColor="@color/logo_purple"
+                android:textColor="@color/black"
                 android:text="Add New Note!"
-                android:textSize="30sp"
+                android:textSize="18sp"
                 android:textStyle="bold"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@color/white"
+                android:background="@drawable/round_social"
+                android:backgroundTint="@color/white"
                 android:elevation="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp">
 
@@ -79,7 +46,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Title"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/kufam"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginTop="20dp"
@@ -90,7 +58,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Content"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/kufam"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginTop="5dp"
@@ -110,23 +79,26 @@
                 android:layout_marginEnd="20dp"
                 android:layout_gravity="center"
                 android:text="Save"
+                android:fontFamily="@font/kufam"
                 android:textSize="16sp"
-                android:padding="10dp"
-                android:background="@color/logo_purple"
+                android:padding="5dp"
+                android:background="@drawable/round_social"
                 android:elevation="5dp"/>
 
             <TextView
                 android:id="@+id/delete_note_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Delete note"
-                android:textColor="#9C0F0F"
+                android:text="@string/delete"
+                android:textColor="#CC0000"
                 android:layout_gravity="center"
                 android:textSize="16sp"
-                android:padding="10dp"
-                android:layout_marginTop="20dp"
+                android:padding="8dp"
+                android:elevation="5dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/kufam"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
-                android:background="@color/light_purple"
                 android:visibility="gone"/>
 
         </LinearLayout>

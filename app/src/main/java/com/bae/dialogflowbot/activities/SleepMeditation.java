@@ -32,11 +32,11 @@ public class SleepMeditation extends AppCompatActivity {
     }
 
     private void set_track() {
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("RelaxingSounds");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("DeepSleep");
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         FirebaseRecyclerOptions<RelaxingSounds> options =
                 new FirebaseRecyclerOptions.Builder<RelaxingSounds>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RelaxingSounds"),RelaxingSounds.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("DeepSleep"),RelaxingSounds.class)
                         .build();
         musicAdapter = new MusicAdapter(options, this, recyclerView);
         recyclerView.setAdapter(musicAdapter);

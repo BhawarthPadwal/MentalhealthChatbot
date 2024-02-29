@@ -6,7 +6,8 @@
     android:layout_marginTop="10dp"
     android:layout_marginStart="20dp"
     android:layout_marginEnd="20dp"
-    android:background="@color/white"
+    android:background="@drawable/round_social"
+    android:backgroundTint="@color/white"
     android:elevation="5dp"
     android:padding="5dp">
 
@@ -17,7 +18,7 @@
         android:text="Note Title"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:fontFamily="@font/kufam"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
@@ -29,11 +30,9 @@
         android:layout_height="wrap_content"
         android:text="Note Content"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:fontFamily="@font/kufam"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
         android:maxLines="2"
         android:ellipsize="end"/>
 
@@ -43,9 +42,9 @@
         android:layout_height="wrap_content"
         android:text="Timestamp"
         android:gravity="end"
-        android:textSize="12sp"
-        android:textColor="@color/logo_purple"
+        android:fontFamily="@font/kufam"
+        android:textColor="@color/black"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"/>
 </LinearLayout>

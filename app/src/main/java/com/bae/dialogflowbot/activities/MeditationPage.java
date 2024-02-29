@@ -31,11 +31,11 @@ public class MeditationPage extends AppCompatActivity {
         recyclerView = findViewById(R.id.meditate_track_rv);
     }
     private void set_meditation_track() {
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("RelaxingSounds");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Meditation");
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         FirebaseRecyclerOptions<RelaxingSounds> options =
                 new FirebaseRecyclerOptions.Builder<RelaxingSounds>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("RelaxingSounds"),RelaxingSounds.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Meditation"),RelaxingSounds.class)
                         .build();
         adapter = new MusicAdapter(options, this, recyclerView);
         recyclerView.setAdapter(adapter);
