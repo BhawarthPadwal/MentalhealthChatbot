@@ -7,41 +7,17 @@
     android:layout_centerInParent="true"
     tools:context=".activities.EditProfilePage">
 
-    <LinearLayout
-        android:id="@+id/app_name_ll_edit_profile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/thinkwell_ai_logo"
-            android:contentDescription="@string/logo"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_marginStart="5dp"
-            android:fontFamily="@font/kufam"
-            android:text="@string/thinkwell_ai"
-            android:textColor="@color/logo_purple"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
     <TextView
         android:id="@+id/edit_profile_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/app_name_ll_edit_profile"
+        android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/kufam"
-        android:text="Edit Profile"
-        android:textColor="@color/logo_purple"
-        android:textSize="30sp"
+        android:text="Edit Your Profile"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <androidx.cardview.widget.CardView
@@ -53,6 +29,7 @@
         android:layout_gravity="center"
         app:cardCornerRadius="60.5dp"
         android:elevation="0dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@android:color/darker_gray">
 
         <ImageView
@@ -70,13 +47,13 @@
         android:layout_height="40dp"
         android:src="@drawable/baseline_camera_alt_24"
         android:contentDescription="@string/picture_fab"
-        app:backgroundTint="@color/logo_purple"
+        app:backgroundTint="#F9F5F6"
         app:fabCustomSize="40dp"
         app:fabSize="normal"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="210dp"
-        android:layout_marginEnd="140dp"/>
+        android:layout_marginTop="175dp"
+        android:layout_marginEnd="130dp"/>
 
     <TextView
         android:id="@+id/edit_profile_email"
@@ -85,13 +62,13 @@
         android:layout_below="@id/fab"
         android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
-        android:background="@drawable/id_background"
         android:fontFamily="@font/kufam"
         android:padding="5dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:text="bhawarthpadwal7@gmail.com"
-        android:textSize="16sp" />
+        android:textColor="@color/black"
+        android:textSize="14sp" />
 
     <LinearLayout
         android:id="@+id/data_ll"
@@ -108,23 +85,26 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kufam"
             android:text="User Name"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/profile_full_name_edit"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/id_background"
+            android:background="@drawable/round_social"
+            android:backgroundTint="#F9F5F6"
             android:ems="10"
             android:inputType="text"
             android:paddingStart="15dp"
             android:paddingEnd="10dp"
             android:text=""
             android:hint="Enter Your User Name ..."
-            android:textSize="16sp" />
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -133,23 +113,26 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kufam"
             android:text="Contact No"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/profile_mobile_no_edit"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/id_background"
+            android:background="@drawable/round_social"
+            android:backgroundTint="#F9F5F6"
             android:ems="10"
             android:inputType="phone"
             android:paddingStart="15dp"
             android:paddingEnd="10dp"
             android:text=""
             android:hint="Enter Your Contact No ..."
-            android:textSize="16sp" />
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -158,16 +141,18 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kufam"
             android:text="Age"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/profile_age_edit"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/id_background"
+            android:background="@drawable/round_social"
+            android:backgroundTint="#F9F5F6"
             android:ems="10"
             android:inputType="number"
             android:paddingStart="15dp"
@@ -175,7 +160,8 @@
             android:hint="Enter Your Age ..."
             android:text=""
             android:maxLength="3"
-            android:textSize="16sp" />
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -184,23 +170,26 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/kufam"
             android:text="Gender"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/profile_gender_edit"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/id_background"
+            android:background="@drawable/round_social"
+            android:backgroundTint="#F9F5F6"
             android:ems="10"
             android:inputType="text"
             android:paddingStart="15dp"
             android:paddingEnd="10dp"
             android:hint="Enter Your Gender ..."
             android:text=""
-            android:textSize="16sp" />
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
 
         <Button
             android:id="@+id/edit_profile_btn"
@@ -213,6 +202,7 @@
             android:text="Save"
             android:textSize="16sp"
             android:layout_gravity="center"
+            android:fontFamily="@font/kufam"
             android:background="@drawable/id_background"
             />
 

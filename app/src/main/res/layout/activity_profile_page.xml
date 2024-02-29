@@ -92,6 +92,26 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="22dp"
                 android:fontFamily="@font/kufam"
+                android:text="Daskboard"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="@drawable/round_social"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:fontFamily="@font/kufam"
+                android:layout_marginTop="10dp"
                 android:text="General"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -140,7 +160,8 @@
                         android:layout_weight="0.75"
                         android:fontFamily="@font/kufam"
                         android:text="Update your profile"
-                        android:textSize="12sp"/>
+                        android:textSize="12sp"
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 
@@ -199,7 +220,8 @@
                         android:layout_weight="0.75"
                         android:fontFamily="@font/kufam"
                         android:text="Change your password"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 
@@ -258,7 +280,8 @@
                         android:layout_weight="0.75"
                         android:fontFamily="@font/kufam"
                         android:text="Put your personal feedback"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 
@@ -317,7 +340,8 @@
                         android:layout_weight="0.75"
                         android:fontFamily="@font/kufam"
                         android:text="Logout from your account."
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 

@@ -77,10 +77,13 @@
             android:id="@+id/community_editMessage"
             android:layout_width="320dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
             android:background="@drawable/round_social"
             android:hint="Ask what you want to ask!"
             android:inputType="textMultiLine"
-            android:padding="15dp" />
+            android:padding="10dp"
+            android:fontFamily="@font/kufam"
+            android:textSize="14sp"/>
 
         <ImageView
             android:id="@+id/community_btnSend"

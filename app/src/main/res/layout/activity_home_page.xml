@@ -49,7 +49,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="30dp"
                 android:background="@drawable/picture_fab_bg"
                 android:backgroundTint="@color/white"
                 android:elevation="5dp"

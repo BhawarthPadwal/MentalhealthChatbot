@@ -40,8 +40,9 @@
                     android:id="@+id/article_title_item"
                     android:text="Text"
                     android:textStyle="bold"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:maxLines="2"
+                    android:textColor="@color/black"
                     android:fontFamily="@font/kufam"/>
             </LinearLayout>
         </LinearLayout>
