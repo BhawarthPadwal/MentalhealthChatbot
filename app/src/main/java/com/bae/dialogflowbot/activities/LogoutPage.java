@@ -2,10 +2,12 @@ package com.bae.dialogflowbot.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,7 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class LogoutPage extends AppCompatActivity {
-    private Button main_logout_btn;
+    private CardView main_logout_btn;
     private ImageView profilePicture;
     private TextView logout_email;
     DatabaseReference databaseReference;
@@ -40,6 +42,8 @@ public class LogoutPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logout_page);
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         call_all_ids();
         set_logout_fun();

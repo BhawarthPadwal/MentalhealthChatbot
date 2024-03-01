@@ -12,35 +12,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:padding="10dp">
+        android:layout_marginTop="60dp"
+        android:padding="10dp"
+        android:gravity="center">
 
         <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@drawable/thinkwell_ai_logo"
-            android:contentDescription="@string/logo"/>
+            android:contentDescription="@string/logo" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_marginStart="5dp"
-            android:fontFamily="@font/kufam"
-            android:text="@string/thinkwell_ai"
-            android:textColor="@color/logo_purple"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:fontFamily="@font/kufam"-->
+<!--            android:text="@string/thinkwell_ai"-->
+<!--            android:textColor="@color/logo_purple"-->
+<!--            android:textSize="15sp"-->
+<!--            android:textStyle="bold" />-->
 
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/back_btn_reg"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:padding="10dp"
-        android:layout_below="@id/app_name_ll"
-        android:src="@drawable/baseline_keyboard_backspace_24"
-        android:contentDescription="@string/backbtn" />
 
     <TextView
         android:id="@+id/welcome_txt"
@@ -49,12 +41,13 @@
         android:layout_below="@id/app_name_ll"
         android:layout_centerInParent="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:fontFamily="@font/kufam"
+        android:gravity="center"
         android:text="New Account, New Possibilities!"
         android:textColor="@color/logo_purple"
-        android:textSize="30sp"
+        android:textSize="22sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -62,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/round_social"
+        android:background="@drawable/new_round_social"
         android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
@@ -84,7 +77,9 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textSize="14sp"
+                android:textColor="@color/black"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -95,7 +90,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/round_social"
+        android:background="@drawable/new_round_social"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
@@ -121,7 +116,9 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textSize="14sp"
+                android:textColor="@color/black"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -132,7 +129,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/round_social"
+        android:background="@drawable/new_round_social"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
@@ -157,24 +154,51 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textSize="14sp"
+                android:textColor="@color/black"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
-    <Button
+<!--    <Button-->
+<!--        android:id="@+id/signup_btn_reg"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_below="@id/confirm_pass_ll_reg"-->
+<!--        android:layout_marginTop="60dp"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginEnd="20dp"-->
+<!--        android:text="Sign up"-->
+<!--        android:textSize="14sp"-->
+<!--        android:fontFamily="@font/kufam"-->
+<!--        android:background="@drawable/round_social"-->
+<!--        />-->
+    <androidx.cardview.widget.CardView
         android:id="@+id/signup_btn_reg"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/confirm_pass_ll_reg"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:text="Sign up"
-        android:textSize="20sp"
-        android:background="@color/logo_purple"
-        />
+        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/logo_purple"
+        app:cardElevation="2dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign up"
+            android:layout_gravity="center"
+            android:textSize="14sp"
+            android:paddingTop="5dp"
+            android:fontFamily="@font/kufam"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+
+    </androidx.cardview.widget.CardView>
 
     <LinearLayout
         android:id="@+id/line_reg"
@@ -198,6 +222,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="or"
+            android:fontFamily="@font/kufam"
             android:gravity="center"
             android:textSize="12sp" />
 
@@ -226,8 +251,7 @@
             android:layout_weight="1"
             android:layout_margin="10dp"
             android:layout_gravity="center"
-
-            android:background="@drawable/round_social">
+            android:background="@drawable/new_round_social">
 
             <ImageView
                 android:layout_width="0dp"
@@ -243,8 +267,11 @@
                 android:layout_weight="3"
                 android:text="Continue With Google"
                 android:textSize="12sp"
+                android:fontFamily="@font/kufam"
+                android:paddingTop="5dp"
                 android:gravity="center"
-                android:paddingEnd="15dp"/>
+                android:paddingEnd="15dp"
+                android:textColor="@color/black"/>
 
 
         </LinearLayout>
@@ -260,8 +287,9 @@
         android:layout_marginTop="5dp"
         android:padding="5dp"
         android:text="@string/already_have_an_account_sign_in"
+        android:fontFamily="@font/kufam"
         android:textColor="@color/logo_purple"
-        android:textSize="15sp" />
+        android:textSize="14sp" />
 </RelativeLayout>
 
 

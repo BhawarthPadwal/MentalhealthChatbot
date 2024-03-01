@@ -7,18 +7,36 @@
     android:layout_centerInParent="true"
     tools:context=".activities.LogoutPage">
 
+    <LinearLayout
+        android:id="@+id/app_name_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="60dp"
+        android:padding="10dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/thinkwell_ai_logo"
+            android:contentDescription="@string/logo" />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/logout_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/app_name_ll"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:fontFamily="@font/kufam"
         android:text="See you soon! "
-        android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textColor="@color/logo_purple"
+        android:textSize="22sp"
         android:textStyle="bold" />
 
     <androidx.cardview.widget.CardView
@@ -55,17 +73,42 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"/>
 
-    <Button
+<!--    <Button-->
+<!--        android:id="@+id/main_logout_btn"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="45dp"-->
+<!--        android:layout_below="@id/logout_email"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginEnd="20dp"-->
+<!--        android:fontFamily="@font/kufam"-->
+<!--        android:text="Logout"-->
+<!--        android:background="@drawable/round_social" />-->
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/main_logout_btn"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="50dp"
         android:layout_below="@id/logout_email"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:fontFamily="@font/kufam"
-        android:text="Logout"
-        android:background="@drawable/round_social" />
+        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/logo_purple"
+        app:cardElevation="2dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:layout_gravity="center"
+            android:textSize="14sp"
+            android:paddingTop="5dp"
+            android:fontFamily="@font/kufam"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+
+    </androidx.cardview.widget.CardView>
 
 
 

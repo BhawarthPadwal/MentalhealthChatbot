@@ -7,49 +7,52 @@
     android:layout_centerInParent="true"
     tools:context=".activities.TaskPage">
 
-    <ImageView
-        android:id="@+id/bg_tasking"
-        android:layout_width="match_parent"
-        android:layout_height="275dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/tasking_sec_bg"
-        android:contentDescription="stream_img" />
+<!--    <ImageView-->
+<!--        android:id="@+id/bg_tasking"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="275dp"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:src="@drawable/tasking_sec_bg"-->
+<!--        android:contentDescription="stream_img" />-->
 
-    <View
-        android:id="@+id/view1"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/bg_tasking"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@android:color/darker_gray"/>
+<!--    <View-->
+<!--        android:id="@+id/view1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_below="@id/bg_tasking"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginEnd="20dp"-->
+<!--        android:background="@android:color/darker_gray"/>-->
 
     <TextView
         android:id="@+id/tasking_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Perfection is only a list away."
-        android:gravity="center"
-        android:fontFamily="@font/kufam"
-        android:layout_below="@id/view1"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"/>
-
-    <View
-        android:id="@+id/view2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/tasking_title"
-        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
-        android:background="@android:color/darker_gray"/>
+        android:fontFamily="@font/kufam"
+        android:gravity="center"
+        android:text="Perfection is only a list away."
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+<!--    <View-->
+<!--        android:id="@+id/view2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_below="@id/tasking_title"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginEnd="20dp"-->
+<!--        android:background="@android:color/darker_gray"/>-->
+
+
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -67,7 +70,7 @@
         android:id="@+id/task_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/view2"
+        android:layout_below="@id/tasking_title"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:layout_above="@id/bottomNavigation_task"/>

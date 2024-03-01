@@ -6,6 +6,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -49,7 +50,7 @@ public class EditProfilePage extends AppCompatActivity {
     DatabaseReference databaseReference;
     ImageView profilePictureIv;
     FloatingActionButton editImageFab;
-    Button saveBtn;
+    CardView saveBtn;
     EditText userNameEt, contactEt, ageEt, genderEt;
     TextView userEmailTv;
     String imageURL, userName, userEmail;

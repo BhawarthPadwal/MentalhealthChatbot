@@ -6,6 +6,7 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -41,7 +42,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class UserLoginPage extends AppCompatActivity {
     private TextView traverse_pg, forgot_pass_txt;
     private TextInputLayout email_et, pass_et;
-    private Button login_btn;
+    private CardView login_btn;
     private LinearLayout google_ll;
     private FirebaseAuth mAuth;
     private GoogleSignInClient googleSignInClient;

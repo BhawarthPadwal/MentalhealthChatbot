@@ -12,24 +12,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:padding="10dp">
+        android:layout_marginTop="60dp"
+        android:padding="10dp"
+        android:gravity="center">
 
         <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@drawable/thinkwell_ai_logo"
-            android:contentDescription="@string/logo"/>
+            android:contentDescription="@string/logo" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_marginStart="5dp"
-            android:fontFamily="@font/kufam"
-            android:text="@string/thinkwell_ai"
-            android:textColor="@color/logo_purple"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:fontFamily="@font/kufam"-->
+<!--            android:text="@string/thinkwell_ai"-->
+<!--            android:textColor="@color/logo_purple"-->
+<!--            android:textSize="15sp"-->
+<!--            android:textStyle="bold" />-->
 
     </LinearLayout>
 
@@ -40,12 +41,13 @@
         android:layout_below="@id/app_name_ll"
         android:layout_centerInParent="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:fontFamily="@font/kufam"
+        android:gravity="center"
         android:text="Get started with your Experience!"
         android:textColor="@color/logo_purple"
-        android:textSize="30sp"
+        android:textSize="22sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -53,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/round_social"
+        android:background="@drawable/new_round_social"
         android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
@@ -75,7 +77,8 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textSize="14sp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,7 +89,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/round_social"
+        android:background="@drawable/new_round_social"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
@@ -112,7 +115,8 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textSize="14sp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,16 +127,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forgot password?"
+        android:fontFamily="@font/kufam"
         android:layout_below="@id/pass_ll_log"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
         android:padding="5dp"
-        android:textSize="15sp"
+        android:textSize="14sp"
         android:textColor="@color/logo_purple"
         android:textStyle="bold"/>
 
-    <Button
+<!--    <Button-->
+<!--        android:id="@+id/login_btn_login"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_below="@id/forgot_pass_txt_login"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginEnd="20dp"-->
+<!--        android:text="Login"-->
+<!--        android:textSize="14sp"-->
+<!--        android:fontFamily="@font/kufam"-->
+<!--        android:background="@drawable/round_social"-->
+<!--        />-->
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/login_btn_login"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -140,10 +159,22 @@
         android:layout_marginTop="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:text="Login"
-        android:textSize="20sp"
-        android:background="@color/logo_purple"
-        />
+        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/logo_purple"
+        app:cardElevation="2dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:layout_gravity="center"
+            android:textSize="14sp"
+            android:paddingTop="5dp"
+            android:fontFamily="@font/kufam"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+
+    </androidx.cardview.widget.CardView>
 
     <LinearLayout
         android:id="@+id/line"
@@ -169,6 +200,7 @@
             android:layout_gravity="center"
             android:textSize="12sp"
             android:gravity="center"
+            android:fontFamily="@font/kufam"
             android:layout_weight="1"/>
 
         <View
@@ -196,7 +228,7 @@
             android:layout_weight="1"
             android:layout_margin="10dp"
             android:layout_gravity="center"
-            android:background="@drawable/round_social">
+            android:background="@drawable/new_round_social">
 
             <ImageView
                 android:layout_width="0dp"
@@ -211,6 +243,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="3"
                 android:text="Continue With Google"
+                android:fontFamily="@font/kufam"
+                android:paddingTop="5dp"
                 android:textSize="12sp"
                 android:gravity="center"
                 android:paddingEnd="15dp"/>
@@ -228,9 +262,10 @@
         android:layout_below="@id/social_ll"
         android:layout_centerInParent="true"
         android:layout_marginTop="5dp"
+        android:fontFamily="@font/kufam"
         android:padding="5dp"
         android:text="@string/don_t_have_account_sign_up"
         android:textColor="@color/logo_purple"
-        android:textSize="15sp" />
+        android:textSize="14sp" />
 
 </RelativeLayout>

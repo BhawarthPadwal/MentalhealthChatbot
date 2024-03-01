@@ -29,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -69,50 +70,69 @@ public class HomePage extends AppCompatActivity {
         dailyThoughts = findViewById(R.id.daily_thought);
         userGreeting = findViewById(R.id.user_greetings);
     }
-
     private void set_daily_thought() {
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("DailyThoughts");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-                    String thought = childSnapshot.getValue(String.class);
-                    thoughtList.add(thought);
-                }
-                // Display the first text
-                if (!thoughtList.isEmpty()) {
-                    dailyThoughts.setText(thoughtList.get(currentIndex));
-                }
-                // Schedule text updates every 24 hours
-                scheduleTextUpdates();
-            }
+        thoughtList.add("Embrace the power of positive thinking, for it has the ability to transform your entire day.");
+        thoughtList.add("Each day is a new opportunity to learn, grow, and become the person you aspire to be.");
+        thoughtList.add("Practice mindfulness by focusing on the present moment and appreciating the beauty of simple pleasures.");
+        thoughtList.add("Every challenge you face is an opportunity for growth and self-discovery.");
+        thoughtList.add("Cultivate an attitude of gratitude, and watch as it attracts more positivity into your life.");
+        thoughtList.add("Take time each day to nourish your mind, body, and soul with activities that bring you joy and fulfillment.");
+        thoughtList.add("Remember that setbacks are temporary, but the lessons they teach can last a lifetime.");
+        thoughtList.add("Surround yourself with people who uplift and inspire you to become the best version of yourself.");
+        thoughtList.add("Treat yourself with kindness and compassion, for you are deserving of love and acceptance just as you are.");
+        thoughtList.add("Focus on progress, not perfection, and celebrate the small victories along the way.");
+        // Display a random thought from the list
+        Random random = new Random();
+        int index = random.nextInt(thoughtList.size());
+        dailyThoughts.setText(thoughtList.get(index));
+    }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(HomePage.this, "Error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-    private void scheduleTextUpdates() {
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        updateText();
-                    }
-                });
-            }
-        }, 24 * 60 * 60 * 1000, 24 * 60 * 60 * 1000); // 24 hours interval
-    }
-    private void updateText() {
-        // Increment index to get the next text
-        currentIndex = (currentIndex + 1) % thoughtList.size();
-        // Update TextView with the next text
-        dailyThoughts.setText(thoughtList.get(currentIndex));
-    }
+//    private void set_daily_thought() {
+//        databaseReference = FirebaseDatabase.getInstance().getReference().child("DailyThoughts");
+//        databaseReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
+//                    String thought = childSnapshot.getValue(String.class);
+//                    thoughtList.add(thought);
+//                }
+//                // Display the first text
+//                if (!thoughtList.isEmpty()) {
+//                    //dailyThoughts.setText(thoughtList.get(currentIndex));
+//                    Random random = new Random();
+//                    int index = random.nextInt(thoughtList.size());
+//                    dailyThoughts.setText(thoughtList.get(index));
+//                }
+//                // Schedule text updates every 24 hours
+//                scheduleTextUpdates();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Toast.makeText(HomePage.this, "Error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
+//    private void scheduleTextUpdates() {
+//        Timer timer = new Timer();
+//        timer.scheduleAtFixedRate(new TimerTask() {
+//            @Override
+//            public void run() {
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        updateText();
+//                    }
+//                });
+//            }
+//        }, 24 * 60 * 60 * 1000, 24 * 60 * 60 * 1000); // 24 hours interval
+//    }
+//    private void updateText() {
+//        // Increment index to get the next text
+//        currentIndex = (currentIndex + 1) % thoughtList.size();
+//        // Update TextView with the next text
+//        dailyThoughts.setText(thoughtList.get(currentIndex));
+//    }
 
     private void set_bottom_navigation() {
 

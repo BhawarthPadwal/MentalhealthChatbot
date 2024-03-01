@@ -2,6 +2,7 @@ package com.bae.dialogflowbot.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,7 +28,7 @@ import java.util.Map;
 
 public class AddEditNote extends AppCompatActivity {
     //ImageView back_btn;
-    Button add_note_btn;
+    CardView add_note_btn;
     EditText title_et, content_et;
     TextView pageTitle, delete_note_tv;
     String title, content, docId;

@@ -5,6 +5,7 @@ import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,8 +14,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,10 +39,9 @@ import com.google.firebase.auth.UserInfo;
 
 public class UserRegisterPage extends AppCompatActivity {
     TextView traverse_pg;
-    ImageView back_btn;
     LinearLayout google_ll;
     TextInputLayout email_et, pass_et, confirm_pass_et;
-    Button signup_btn;
+    CardView signup_btn;
     FirebaseAuth mAuth;
     GoogleSignInClient googleSignInClient;
     int RC_SIGN_IN = 20;
@@ -68,12 +66,11 @@ public class UserRegisterPage extends AppCompatActivity {
         sign_in();
     }
     private void call_all_ids() {
-        back_btn = (ImageView) findViewById(R.id.back_btn_reg);
         traverse_pg = (TextView) findViewById(R.id.return_login_pg);
         email_et = (TextInputLayout) findViewById(R.id.email_txt_reg);
         pass_et = (TextInputLayout) findViewById(R.id.pass_txt_reg);
         confirm_pass_et = (TextInputLayout) findViewById(R.id.confirm_pass_txt_reg);
-        signup_btn = (Button) findViewById(R.id.signup_btn_reg);
+        signup_btn = findViewById(R.id.signup_btn_reg);
         google_ll = (LinearLayout) findViewById(R.id.google_ll_reg);
     }
 
@@ -310,14 +307,5 @@ public class UserRegisterPage extends AppCompatActivity {
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
-        back_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(UserRegisterPage.this, UserLoginPage.class));
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                finish();
-            }
-        });
-
     }
 }
