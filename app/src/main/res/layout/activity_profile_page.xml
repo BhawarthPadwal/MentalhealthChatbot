@@ -110,7 +110,7 @@
                         android:id="@+id/total_tasks"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="100"
+                        android:text="0"
                         android:gravity="center"
                         android:textSize="16sp"
                         android:textColor="@color/black"
@@ -139,7 +139,7 @@
                         android:id="@+id/completed_tasks"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="80"
+                        android:text="0"
                         android:gravity="center"
                         android:textSize="16sp"
                         android:textColor="@color/black"
@@ -168,7 +168,7 @@
                         android:id="@+id/pending_tasks"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="20"
+                        android:text="0"
                         android:gravity="center"
                         android:textSize="16sp"
                         android:textColor="@color/black"
@@ -208,7 +208,7 @@
                         android:id="@+id/onTime_tasks"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="100"
+                        android:text="0"
                         android:gravity="center"
                         android:textSize="16sp"
                         android:textColor="@color/black"
@@ -237,7 +237,7 @@
                         android:id="@+id/late_tasks"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="80"
+                        android:text="0"
                         android:gravity="center"
                         android:textSize="16sp"
                         android:textColor="@color/black"
@@ -266,7 +266,7 @@
                         android:id="@+id/task_efficiency"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="20%"
+                        android:text="0%"
                         android:gravity="center"
                         android:textSize="16sp"
                         android:textColor="@color/black"
@@ -290,6 +290,7 @@
 
             <!--  General first-->
             <LinearLayout
+                android:id="@+id/edit_profile"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginStart="20dp"
@@ -337,7 +338,6 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/edit_profile"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
@@ -350,6 +350,7 @@
 
             <!--  General second-->
             <LinearLayout
+                android:id="@+id/change_password_profile"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginStart="20dp"
@@ -397,7 +398,6 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/change_password_profile"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
@@ -410,6 +410,7 @@
 
             <!--  General third-->
             <LinearLayout
+                android:id="@+id/feedback_iv"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginStart="20dp"
@@ -457,7 +458,6 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/feedback_iv"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
@@ -470,6 +470,7 @@
 
             <!--  General fourth-->
             <LinearLayout
+                android:id="@+id/logout_btn_profile"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginStart="20dp"
@@ -517,7 +518,6 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/logout_btn_profile"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"

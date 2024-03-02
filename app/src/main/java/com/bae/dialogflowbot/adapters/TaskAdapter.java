@@ -189,11 +189,41 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.MyTas
     }
     private void onTaskCompletion(String docId, Task task) {
 
+        Map<String, Integer> currentDateData = task.getDate();
+
+        Integer dayOfMonth = currentDateData.get("dayOfMonth"); // Extracting the dayOfMonth value
+        Integer month = currentDateData.get("month"); // Extracting the month value
+        Integer year = currentDateData.get("year"); // Extracting the year value
+        Integer hourOfDay = currentDateData.get("hourOfDay"); // Extracting the hourOfDay value
+        Integer minute = currentDateData.get("minute"); // Extracting the minute value
+
+        Calendar completionTime = Calendar.getInstance();
+        completionTime.set(year, month - 1, dayOfMonth, hourOfDay, minute);
+
+        long completionTimeMillis = completionTime.getTimeInMillis();
+
+        if (completionTimeMillis < System.currentTimeMillis()) {
+            //late
+            databaseReference = FirebaseDatabase.getInstance().getReference().child("Tasks").child(currentUser.getUid()).child("myCompletedTasksLate");
+            databaseReference.push().setValue(task).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
+                    Toast.makeText(context, "Task done late successfully", Toast.LENGTH_SHORT).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Log.e("CompletedTask","Error: "+e.getMessage());
+                }
+            });
+
+        }
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Tasks").child(currentUser.getUid()).child("myCompletedTasks");
         databaseReference.push().setValue(task).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
-                Toast.makeText(context, "Task appended successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Task done successfully", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

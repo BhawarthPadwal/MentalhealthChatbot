@@ -2,6 +2,7 @@ package com.bae.dialogflowbot.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -17,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,9 +36,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DecimalFormat;
+
 public class ProfilePage extends AppCompatActivity {
-    ImageView logout_btn, change_pass_btn, edit_profile_btn, profile_picture, feedback_iv;
-    TextView userName_tv, userEmail_tv;
+    ImageView profile_picture;
+    LinearLayout logout_btn, change_pass_btn, edit_profile_btn, feedback_iv;
+    TextView userName_tv, userEmail_tv, totalTask, completedTask, pendingTask, onTimeTask, lateTask, taskEfficiency;
     DatabaseReference databaseReference;
     FirebaseUser currentUser;
     BottomNavigationView bottomNavigationView;
@@ -52,7 +57,7 @@ public class ProfilePage extends AppCompatActivity {
         set_pic();
         retrieve_and_set_data();
         set_bottom_navigation();
-
+        set_task_scorecard();
         edit_profile_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,6 +104,96 @@ public class ProfilePage extends AppCompatActivity {
         profile_picture = findViewById(R.id.profile_picture);
         bottomNavigationView = findViewById(R.id.bottomNavigation_profile);
         feedback_iv = findViewById(R.id.feedback_iv);
+        totalTask = findViewById(R.id.total_tasks);
+        completedTask = findViewById(R.id.completed_tasks);
+        pendingTask = findViewById(R.id.pending_tasks);
+        onTimeTask = findViewById(R.id.onTime_tasks);
+        lateTask = findViewById(R.id.late_tasks);
+        taskEfficiency = findViewById(R.id.task_efficiency);
+    }
+
+    private void pending_task(OnTaskCompletedListener listener) {
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Tasks").child(currentUser.getUid()).child("myTasks");
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                long numEntries = snapshot.getChildrenCount();
+                String pendingTaskCount = String.valueOf(numEntries);
+                listener.onTaskCompleted(numEntries);
+                pendingTask.setText(pendingTaskCount);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ProfilePage.this, "Pending Task Error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void completed_task(OnTaskCompletedListener listener) {
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Tasks").child(currentUser.getUid()).child("myCompletedTasks");
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                long numEntries = snapshot.getChildrenCount();
+                String completedTaskCount = String.valueOf(numEntries);
+                listener.onTaskCompleted(numEntries);
+                completedTask.setText(completedTaskCount);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ProfilePage.this, "Completed Task Error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void late_completed_task(OnTaskCompletedListener listener) {
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Tasks").child(currentUser.getUid()).child("myCompletedTasksLate");
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                long numEntries = snapshot.getChildrenCount();
+                String completedTaskCount = String.valueOf(numEntries);
+                listener.onTaskCompleted(numEntries);
+                lateTask.setText(completedTaskCount);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ProfilePage.this, "Completed Task Error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void set_task_scorecard() {
+        pending_task(new OnTaskCompletedListener() {
+            @Override
+            public void onTaskCompleted(long pendingTaskCount) {
+                completed_task(new OnTaskCompletedListener() {
+                    @Override
+                    public void onTaskCompleted(long completedTaskCount) {
+                        late_completed_task(new OnTaskCompletedListener() {
+                            @Override
+                            public void onTaskCompleted(long lateCompletedTaskCount) {
+                                long taskOnTime = completedTaskCount - lateCompletedTaskCount;
+                                long total_tasks = pendingTaskCount + completedTaskCount;
+                                String str_total_task = String.valueOf(total_tasks);
+                                String str_taskOnTime = String.valueOf(taskOnTime);
+                                totalTask.setText(str_total_task);
+                                onTimeTask.setText(str_taskOnTime);
+                                double efficiency = ((double) taskOnTime / total_tasks) * 100;
+                                DecimalFormat decimalFormat = new DecimalFormat("00.00%");
+                                String str_efficiency = decimalFormat.format(efficiency / 100); // Divide by 100 to convert to percentage
+                                taskEfficiency.setText(str_efficiency);
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    }
+    public interface OnTaskCompletedListener {
+        void onTaskCompleted(long taskCount);
     }
 
     private void openDialog() {
