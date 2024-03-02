@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
-    android:background="@drawable/chat_bg2"
     tools:context=".MainActivity">
 
   <LinearLayout
@@ -15,13 +14,14 @@
       android:orientation="horizontal"
       android:background="@android:color/transparent"
       android:padding="10dp"
-      android:elevation="2dp">
+      android:elevation="2dp"
+      android:gravity="center">
 
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/thinkwell_ai_logo"
-        android:contentDescription="@string/logo"/>
+<!--    <ImageView-->
+<!--        android:layout_width="30dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:src="@drawable/thinkwell_ai_logo"-->
+<!--        android:contentDescription="@string/logo"/>-->
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,8 +29,9 @@
         android:layout_marginStart="5dp"
         android:fontFamily="@font/kufam"
         android:text="@string/thinkwell_ai"
-        android:textColor="@color/white"
-        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:paddingTop="5dp"
         android:textStyle="bold" />
 
   </LinearLayout>
@@ -70,13 +71,14 @@
         android:inputType="textMultiLine"
         android:fontFamily="@font/kufam"
         android:padding="10dp"
+        android:layout_marginTop="10dp"
         android:textSize="14sp"/>
 
     <ImageView
         android:id="@+id/btnSend"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/white_send_button"
+        android:src="@drawable/grey_send_button"
         android:padding="10dp"
         android:layout_gravity="center_vertical"
         android:contentDescription="@string/sendbtn"

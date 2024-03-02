@@ -70,7 +70,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.MyTas
 
             int alarmStatus = setAlarmAtDueTime(year, month, dayOfMonth, hourOfDay, minute, 0,model);
             if (alarmStatus == 1) {
-                Toast.makeText(context, "Alarm set successfully", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "Alarm set successfully", Toast.LENGTH_SHORT).show();
                 holder.taskStatus_tv.setText("Upcoming");
                 holder.taskStatus_tv.setTextColor(Color.rgb(76, 187, 23));
             } else {

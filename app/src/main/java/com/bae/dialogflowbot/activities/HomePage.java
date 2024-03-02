@@ -37,9 +37,7 @@ public class HomePage extends AppCompatActivity {
     TextView dailyThoughts, userGreeting;
     BottomNavigationView bottomNavigationView;
     ImageView chatBot, startMed, startSleepMed, startVisuals, startSounds, startStories, startConnections;
-    DatabaseReference databaseReference;
     List<String> thoughtList = new ArrayList<>();
-    int currentIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,53 +84,6 @@ public class HomePage extends AppCompatActivity {
         int index = random.nextInt(thoughtList.size());
         dailyThoughts.setText(thoughtList.get(index));
     }
-
-//    private void set_daily_thought() {
-//        databaseReference = FirebaseDatabase.getInstance().getReference().child("DailyThoughts");
-//        databaseReference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-//                    String thought = childSnapshot.getValue(String.class);
-//                    thoughtList.add(thought);
-//                }
-//                // Display the first text
-//                if (!thoughtList.isEmpty()) {
-//                    //dailyThoughts.setText(thoughtList.get(currentIndex));
-//                    Random random = new Random();
-//                    int index = random.nextInt(thoughtList.size());
-//                    dailyThoughts.setText(thoughtList.get(index));
-//                }
-//                // Schedule text updates every 24 hours
-//                scheduleTextUpdates();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Toast.makeText(HomePage.this, "Error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
-//    private void scheduleTextUpdates() {
-//        Timer timer = new Timer();
-//        timer.scheduleAtFixedRate(new TimerTask() {
-//            @Override
-//            public void run() {
-//                runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        updateText();
-//                    }
-//                });
-//            }
-//        }, 24 * 60 * 60 * 1000, 24 * 60 * 60 * 1000); // 24 hours interval
-//    }
-//    private void updateText() {
-//        // Increment index to get the next text
-//        currentIndex = (currentIndex + 1) % thoughtList.size();
-//        // Update TextView with the next text
-//        dailyThoughts.setText(thoughtList.get(currentIndex));
-//    }
 
     private void set_bottom_navigation() {
 
