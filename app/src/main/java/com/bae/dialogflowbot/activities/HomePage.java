@@ -119,7 +119,6 @@ public class HomePage extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(HomePage.this, MeditationPage.class));
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                Toast.makeText(HomePage.this, "Meditation Page", Toast.LENGTH_SHORT).show();
             }
         });
         startSleepMed.setOnClickListener(new View.OnClickListener() {
@@ -127,8 +126,6 @@ public class HomePage extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(HomePage.this, SleepMeditation.class));
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                Toast.makeText(HomePage.this, "Sleep Meditation Page", Toast.LENGTH_SHORT).show();
-
             }
         });
         startSounds.setOnClickListener(new View.OnClickListener() {
@@ -136,7 +133,6 @@ public class HomePage extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(HomePage.this, CalmingSoundPage.class));
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                Toast.makeText(HomePage.this, "Calming Sound Page", Toast.LENGTH_SHORT).show();
             }
         });
         startVisuals.setOnClickListener(new View.OnClickListener() {
@@ -144,7 +140,6 @@ public class HomePage extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(HomePage.this, VisualsPage.class));
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                Toast.makeText(HomePage.this, "Podcast Page", Toast.LENGTH_SHORT).show();
             }
         });
         startStories.setOnClickListener(new View.OnClickListener() {
@@ -152,7 +147,6 @@ public class HomePage extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(HomePage.this, ArticlesPage.class));
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                Toast.makeText(HomePage.this, "Article Page", Toast.LENGTH_SHORT).show();
             }
         });
         startConnections.setOnClickListener(new View.OnClickListener() {
@@ -160,7 +154,6 @@ public class HomePage extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(HomePage.this, CommunityPage.class));
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                Toast.makeText(HomePage.this, "Community Page", Toast.LENGTH_SHORT).show();
             }
         });
     }

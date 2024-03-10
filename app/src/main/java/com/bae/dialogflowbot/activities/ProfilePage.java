@@ -267,6 +267,9 @@ public class ProfilePage extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (isDestroyed()) {
+                    return; // Prevent loading image if activity is destroyed
+                }
                 if (snapshot.exists()) {
                     String updatedImageURL = snapshot.child("imageUrl").getValue(String.class);
                     if (updatedImageURL != null) {

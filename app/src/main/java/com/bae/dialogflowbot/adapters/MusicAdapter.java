@@ -65,6 +65,9 @@ public class MusicAdapter extends FirebaseRecyclerAdapter<RelaxingSounds, MusicA
     protected void onBindViewHolder(@NonNull MyMusicViewHolder holder, int position, @NonNull RelaxingSounds model) {
         holder.musicName.setText(model.getName());
         holder.musicDuration.setText(model.getDuration());
+        // Set the play button icon based on whether the item is currently playing or not
+        //holder.playBtn.setImageResource(position == currentlyPlayingPosition && isPlaying ? R.drawable.ic_pause : R.drawable.ic_play);
+        holder.playBtn.setImageResource(position == currentlyPlayingPosition && mediaPlayer.isPlaying() ? R.drawable.ic_pause : R.drawable.ic_play);
         holder.playBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,7 +83,6 @@ public class MusicAdapter extends FirebaseRecyclerAdapter<RelaxingSounds, MusicA
                     handler.postDelayed(updateProgressRunnable, 1000);
                 }
                 notifyDataSetChanged(); // Notify adapter of data set changed to update UI
-                holder.playBtn.setImageResource(isPlaying ? R.drawable.ic_pause : R.drawable.ic_play); // Update play button icon
             }
         });
 

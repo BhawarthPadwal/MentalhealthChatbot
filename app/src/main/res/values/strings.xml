@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">ThinkWell AI</string>
+    <string name="app_name">ThinkWell</string>
     <string name="logo">logo</string>
-    <string name="thinkwell_ai">ThinkWell.AI</string>
+    <string name="thinkwell_ai">ThinkWell</string>
     <string name="sendbtn">sendBtn</string>
     <string name="don_t_have_account_sign_up"><html>Don\'t have account? <b>Sign Up</b></html></string>
     <string name="backbtn">backbtn</string>

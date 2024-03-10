@@ -208,7 +208,6 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.MyTas
             databaseReference.push().setValue(task).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
-                    Toast.makeText(context, "Task done late successfully", Toast.LENGTH_SHORT).show();
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -223,7 +222,6 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.MyTas
         databaseReference.push().setValue(task).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
-                Toast.makeText(context, "Task done successfully", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -242,7 +240,6 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.MyTas
         databaseReference.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
-                Toast.makeText(context, "Task Deleted", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -253,10 +250,4 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.MyTas
 
 
     }
-
-//    public int getItemCount() {
-//        return super.getItemCount();
-//    }
-
-
 }

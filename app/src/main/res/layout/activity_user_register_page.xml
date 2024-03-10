@@ -22,16 +22,6 @@
             android:src="@drawable/thinkwell_ai_logo"
             android:contentDescription="@string/logo" />
 
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="35dp"-->
-<!--            android:layout_marginStart="5dp"-->
-<!--            android:fontFamily="@font/kufam"-->
-<!--            android:text="@string/thinkwell_ai"-->
-<!--            android:textColor="@color/logo_purple"-->
-<!--            android:textSize="15sp"-->
-<!--            android:textStyle="bold" />-->
-
     </LinearLayout>
 
     <TextView
@@ -162,19 +152,6 @@
 
     </LinearLayout>
 
-<!--    <Button-->
-<!--        android:id="@+id/signup_btn_reg"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_below="@id/confirm_pass_ll_reg"-->
-<!--        android:layout_marginTop="60dp"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:layout_marginEnd="20dp"-->
-<!--        android:text="Sign up"-->
-<!--        android:textSize="14sp"-->
-<!--        android:fontFamily="@font/kufam"-->
-<!--        android:background="@drawable/round_social"-->
-<!--        />-->
     <androidx.cardview.widget.CardView
         android:id="@+id/signup_btn_reg"
         android:layout_width="match_parent"

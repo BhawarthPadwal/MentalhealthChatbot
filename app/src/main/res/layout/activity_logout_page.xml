@@ -73,18 +73,6 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"/>
 
-<!--    <Button-->
-<!--        android:id="@+id/main_logout_btn"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="45dp"-->
-<!--        android:layout_below="@id/logout_email"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:layout_marginEnd="20dp"-->
-<!--        android:fontFamily="@font/kufam"-->
-<!--        android:text="Logout"-->
-<!--        android:background="@drawable/round_social" />-->
-
     <androidx.cardview.widget.CardView
         android:id="@+id/main_logout_btn"
         android:layout_width="match_parent"

@@ -22,16 +22,6 @@
             android:src="@drawable/thinkwell_ai_logo"
             android:contentDescription="@string/logo" />
 
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="35dp"-->
-<!--            android:layout_marginStart="5dp"-->
-<!--            android:fontFamily="@font/kufam"-->
-<!--            android:text="@string/thinkwell_ai"-->
-<!--            android:textColor="@color/logo_purple"-->
-<!--            android:textSize="15sp"-->
-<!--            android:textStyle="bold" />-->
-
     </LinearLayout>
 
     <TextView
@@ -137,20 +127,6 @@
         android:textColor="@color/logo_purple"
         android:textStyle="bold"/>
 
-<!--    <Button-->
-<!--        android:id="@+id/login_btn_login"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_below="@id/forgot_pass_txt_login"-->
-<!--        android:layout_marginTop="50dp"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:layout_marginEnd="20dp"-->
-<!--        android:text="Login"-->
-<!--        android:textSize="14sp"-->
-<!--        android:fontFamily="@font/kufam"-->
-<!--        android:background="@drawable/round_social"-->
-<!--        />-->
-
     <androidx.cardview.widget.CardView
         android:id="@+id/login_btn_login"
         android:layout_width="match_parent"
@@ -248,8 +224,6 @@
                 android:textSize="12sp"
                 android:gravity="center"
                 android:paddingEnd="15dp"/>
-
-
 
         </LinearLayout>
 

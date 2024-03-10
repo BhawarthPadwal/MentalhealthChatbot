@@ -57,7 +57,7 @@
                     android:fontFamily="@font/kufam"
                     android:text="User Name"
                     android:textColor="@color/white"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/profile_email_tv"
@@ -72,15 +72,42 @@
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="22dp"
-                android:fontFamily="@font/kufam"
-                android:text="Task Scoreboard"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:orientation="horizontal"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:fontFamily="@font/kufam"
+                    android:text="Task Scoreboard"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/fire"
+                    android:padding="5dp"
+                    android:layout_marginStart="166dp"/>
+
+                <TextView
+                    android:id="@+id/streak"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/kufam"
+                    android:text="1"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingTop="5dp"/>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -94,28 +121,28 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Total"
+                        android:fontFamily="@font/kufam"
                         android:gravity="center"
-                        android:textSize="16sp"
+                        android:text="Total"
                         android:textColor="@color/black"
-                        android:fontFamily="@font/kufam"/>
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/total_tasks"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="0"
+                        android:fontFamily="@font/kufam"
                         android:gravity="center"
-                        android:textSize="16sp"
+                        android:text="0"
                         android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/kufam"/>
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -123,28 +150,28 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Completed"
+                        android:fontFamily="@font/kufam"
                         android:gravity="center"
-                        android:textSize="16sp"
+                        android:text="Completed"
                         android:textColor="@color/black"
-                        android:fontFamily="@font/kufam"/>
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/completed_tasks"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="0"
+                        android:fontFamily="@font/kufam"
                         android:gravity="center"
-                        android:textSize="16sp"
+                        android:text="0"
                         android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/kufam"/>
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -152,28 +179,28 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Pending "
+                        android:fontFamily="@font/kufam"
                         android:gravity="center"
-                        android:textSize="16sp"
+                        android:text="Pending "
                         android:textColor="@color/black"
-                        android:fontFamily="@font/kufam"/>
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/pending_tasks"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="0"
+                        android:fontFamily="@font/kufam"
                         android:gravity="center"
-                        android:textSize="16sp"
+                        android:text="0"
                         android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/kufam"/>
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -183,8 +210,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/round_social"
                 android:orientation="horizontal">
 
@@ -192,28 +219,28 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="On Time"
+                        android:fontFamily="@font/kufam"
                         android:gravity="center"
-                        android:textSize="16sp"
+                        android:text="On Time"
                         android:textColor="@color/black"
-                        android:fontFamily="@font/kufam"/>
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/onTime_tasks"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="0"
+                        android:fontFamily="@font/kufam"
                         android:gravity="center"
-                        android:textSize="16sp"
+                        android:text="0"
                         android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/kufam"/>
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -221,28 +248,28 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Late"
+                        android:fontFamily="@font/kufam"
                         android:gravity="center"
-                        android:textSize="16sp"
+                        android:text="Late"
                         android:textColor="@color/black"
-                        android:fontFamily="@font/kufam"/>
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/late_tasks"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="0"
+                        android:fontFamily="@font/kufam"
                         android:gravity="center"
-                        android:textSize="16sp"
+                        android:text="0"
                         android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/kufam"/>
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -250,28 +277,28 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Efficiency "
+                        android:fontFamily="@font/kufam"
                         android:gravity="center"
-                        android:textSize="16sp"
+                        android:text="Efficiency "
                         android:textColor="@color/black"
-                        android:fontFamily="@font/kufam"/>
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/task_efficiency"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="0%"
+                        android:fontFamily="@font/kufam"
                         android:gravity="center"
-                        android:textSize="16sp"
+                        android:text="0%"
                         android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/kufam"/>
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -281,12 +308,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="22dp"
-                android:fontFamily="@font/kufam"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/kufam"
                 android:text="General Settings"
+                android:textColor="@color/black"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:textStyle="bold" />
 
             <!--  General first-->
             <LinearLayout
@@ -314,8 +341,8 @@
                     android:layout_marginStart="20dp"
                     android:orientation="vertical"
                     android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:paddingEnd="5dp">
+                    android:paddingEnd="5dp"
+                    android:paddingBottom="8dp">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -332,8 +359,8 @@
                         android:layout_weight="0.75"
                         android:fontFamily="@font/kufam"
                         android:text="Update your profile"
-                        android:textSize="12sp"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 
@@ -374,8 +401,8 @@
                     android:layout_marginStart="20dp"
                     android:orientation="vertical"
                     android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:paddingEnd="5dp">
+                    android:paddingEnd="5dp"
+                    android:paddingBottom="8dp">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -392,8 +419,8 @@
                         android:layout_weight="0.75"
                         android:fontFamily="@font/kufam"
                         android:text="Change your password"
-                        android:textSize="12sp"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 
@@ -434,8 +461,8 @@
                     android:layout_marginStart="20dp"
                     android:orientation="vertical"
                     android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:paddingEnd="5dp">
+                    android:paddingEnd="5dp"
+                    android:paddingBottom="8dp">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -452,8 +479,8 @@
                         android:layout_weight="0.75"
                         android:fontFamily="@font/kufam"
                         android:text="Put your personal feedback"
-                        android:textSize="12sp"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 
@@ -494,8 +521,8 @@
                     android:layout_marginStart="20dp"
                     android:orientation="vertical"
                     android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:paddingEnd="5dp">
+                    android:paddingEnd="5dp"
+                    android:paddingBottom="8dp">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -512,8 +539,8 @@
                         android:layout_weight="0.75"
                         android:fontFamily="@font/kufam"
                         android:text="Logout from your account."
-                        android:textSize="12sp"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 
