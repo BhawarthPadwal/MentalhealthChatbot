@@ -8,7 +8,7 @@
     <string name="already_have_an_account_sign_in"><html>Already have an account? <b>Log in</b></html></string>
     <string name="email_instruction">Enter the email address associated with your account.</string>
 
-    <string name="default_web_client_id">145486496385-9mdlq89fi5rqe821n03hr4had69dvmqm.apps.googleusercontent.com</string>
+    <string name="default_web_client_id">PUT_YOUR_KEY</string>
     <string name="addnotefab">addnotefab</string>
     <string name="blissbook">BlissBook</string>
     <string name="picture_fab">picture_fab</string>
