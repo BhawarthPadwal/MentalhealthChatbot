@@ -181,7 +181,7 @@ public class ProfilePage extends AppCompatActivity {
                                 String str_taskOnTime = String.valueOf(taskOnTime);
                                 totalTask.setText(str_total_task);
                                 onTimeTask.setText(str_taskOnTime);
-                                double efficiency = ((double) taskOnTime / total_tasks) * 100;
+                                double efficiency = ((double) taskOnTime / completedTaskCount) * 100;
                                 DecimalFormat decimalFormat = new DecimalFormat("00.00%");
                                 String str_efficiency = decimalFormat.format(efficiency / 100); // Divide by 100 to convert to percentage
                                 taskEfficiency.setText(str_efficiency);

@@ -303,7 +303,7 @@ public class UserLoginPage extends AppCompatActivity {
             intent.putExtra("USER_EMAIL", userEmail);
             startActivity(intent);
 
-            Toast.makeText(this, userName + " " + userEmail, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, userName + " " + userEmail, Toast.LENGTH_SHORT).show();
 
 
             // Apply transition animation and finish the current activity
